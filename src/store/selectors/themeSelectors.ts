@@ -1,5 +1,5 @@
-import { IState } from "src/globalStyles";
+import { IState } from "src/globalTypes";
 
 export const themeSelectors = {
-  getThemeMode: (state: IState) => state.themeMode,
+  getThemeMode: (state: IState) => state.theme.themeMode,
 };
