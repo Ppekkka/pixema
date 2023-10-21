@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 interface IProps {
   $menuIsOpened: boolean;
 }
@@ -11,7 +10,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  margin-bottom: 24px;
+  height: max-content;
 `;
 
 export const FlexWrapper = styled.div`

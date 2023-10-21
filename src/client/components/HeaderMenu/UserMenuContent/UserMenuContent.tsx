@@ -3,13 +3,13 @@ import {
   Wrapper,
   SectionWrapper,
   SectionText,
-} from "src/client/components/User/UserMenu/styles";
+} from "src/client/components/HeaderMenu/UserMenuContent/styles";
 
 interface IProps {
   $isAuthorized: boolean;
 }
 
-const UserMenu = ({ $isAuthorized }: IProps) => {
+const UserMenuContent = ({ $isAuthorized }: IProps) => {
   return $isAuthorized ? (
     <Wrapper>
       <SectionWrapper $isAuthorized>
@@ -28,4 +28,4 @@ const UserMenu = ({ $isAuthorized }: IProps) => {
   );
 };
 
-export default UserMenu;
+export default UserMenuContent;

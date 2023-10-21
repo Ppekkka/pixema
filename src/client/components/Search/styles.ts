@@ -1,9 +1,17 @@
-import FilterSvg from "src/client/components/Svg/FilterSvg";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  max-width: 1184px;
+  width: clamp(87%, 1.2vw, 83%);
   position: relative;
+  height: max-content;
+
+  @media (min-width: 1440px) {
+    width: clamp(65%, 1.2vw, 80%);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const SearchInput = styled.input`

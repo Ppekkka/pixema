@@ -6,7 +6,7 @@ type TabType = {
 };
 
 export const StyledTabsWrapper = styled.div`
-  width: max-content;
+  max-width: max-content;
   height: 59px;
   border: 2px solid ${(props) => props.theme.palette.primary.grey};
   border-radius: 14px;

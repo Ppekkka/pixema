@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
-  width: 199px;
+  width: 100%;
   padding: 17px 0;
   border-radius: 10px;
   text-align: center;
@@ -11,11 +11,13 @@ export const StyledButton = styled.button`
   line-height: 24px;
   letter-spacing: 0em;
   color: #ffffff;
-  background-color: #7B61FF;
+  background-color: #7b61ff;
   border: none;
+  transition: 0.3s;
 
   &:hover {
-    background-color: #917CFF;
+    background-color: #917cff;
     cursor: pointer;
+    transition: 0.3s;
   }
 `;

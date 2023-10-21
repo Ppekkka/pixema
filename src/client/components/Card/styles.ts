@@ -61,7 +61,7 @@ export const FavWrapper = styled.div`
   right: 20px;
 `;
 
-export const Title = styled.p`
+export const CardTitle = styled.p`
   font-family: "Exo 2", sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -73,34 +73,5 @@ export const Title = styled.p`
 
   &:hover {
     color: #7b61ff;
-  }
-`;
-
-export const GenreWrapper = styled.div`
-  display: flex;
-`;
-
-export const Genre = styled.p`
-  display: flex;
-  font-family: "Exo 2", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: left;
-  color: #afb2b6;
-
-  &:after {
-    content: "";
-    display: flex;
-    width: 4px;
-    height: 4px;
-    background-color: #afb2b6;
-    border-radius: 50%;
-    margin: 10px 8px;
-  }
-
-  &:last-child {
-    &:after {
-      display: none;
-    }
   }
 `;

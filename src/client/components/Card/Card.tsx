@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import {
   Wrapper,
   ImageWrapper,
@@ -7,50 +7,36 @@ import {
   HotRatingWrapper,
   HotRating,
   FavWrapper,
-  Title,
-  GenreWrapper,
-  Genre,
+  CardTitle,
 } from "src/client/components/Card/styles";
 import BookmarkSvg from "src/client/components/Svg/BookmarkSvg";
 import FireSvg from "src/client/components/Svg/FireSvg";
+import { ICard } from "src/globalTypes";
 
-interface ICardProps {
-  image: string;
-  title: string;
-  genres: string[];
-  rating: number;
-}
-
-const Card = ({ image, title, genres, rating }: ICardProps) => {
+const Card = ({ Poster, Title, imdbRating }: ICard) => {
   const isFav = true; //will be changed
 
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image src={image} />
-        {rating >= 8 ? (
+        <Image src={Poster} />
+        {+imdbRating >= 8 ? (
           <HotRatingWrapper>
-            <FireSvg />
-            <HotRating>{rating}</HotRating>
+            <FireSvg fill="white"/>
+            <HotRating>{imdbRating}</HotRating>
           </HotRatingWrapper>
         ) : (
-          <Rating>{rating}</Rating>
+          <Rating>{imdbRating}</Rating>
         )}
         {isFav && (
-        <FavWrapper>
-          <BookmarkSvg fill="#7B61FF" />
-        </FavWrapper>
+          <FavWrapper>
+            <BookmarkSvg fill="#7B61FF" />
+          </FavWrapper>
         )}
       </ImageWrapper>
-      <Title>{title}</Title>
-
-      <GenreWrapper>
-      {genres.map((genre) => (
-        <Genre key={genre}>{genre}</Genre>
-      ))}
-      </GenreWrapper>
+      <CardTitle>{Title}</CardTitle>
     </Wrapper>
   );
 };
 
-export default Card;
+export default memo(Card);

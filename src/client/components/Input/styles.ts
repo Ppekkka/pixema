@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const StyledInput = styled.input`
   display: block;
-  width: 438px;
+  width: 100%;
   height: 56px;
   background-color: ${(props) => props.theme.palette.primary.grey};
   border-radius: 10px;
   border: 0;
-  color: white;
+  color: ${(props) => props.theme.palette.primary.text};
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;

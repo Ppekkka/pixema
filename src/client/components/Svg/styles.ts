@@ -13,3 +13,7 @@ export const StyledFillSvg = styled.svg`
 export const StyledStrictSvg = styled.svg`
   stroke: ${(props) => props.theme.palette.primary.text};
 `;
+
+export const StyledPixemaSvg = styled.svg`
+  width: clamp(152px, 1.2vw, 100%);
+`;

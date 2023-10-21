@@ -1,5 +1,5 @@
 import UserSvg from "src/client/components/Svg/UserSvg";
-import { IconInitials, UserText } from "src/client/components/User/styles";
+import { IconInitials, UserText } from "src/client/components/HeaderMenu/User/styles";
 
 const getInitials = (username: string) => {
   const usernameArr = username.split(" ");

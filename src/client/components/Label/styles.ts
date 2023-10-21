@@ -8,4 +8,5 @@ export const StyledLabel = styled.label`
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
+  margin-top: 8px;
 `;

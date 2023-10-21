@@ -5,9 +5,11 @@ import {
   FilterSvgWrapper,
 } from "src/client/components/Search/styles";
 import FilterSvg from "src/client/components/Svg/FilterSvg";
+import { useAction } from "src/store/hooks/useAction";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
+  const { openFilterMenu } = useAction();
 
   const handleChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
@@ -19,7 +21,7 @@ const Search = () => {
         placeholder="Search"
         onChange={handleChangeValue}
       ></SearchInput>
-      <FilterSvgWrapper>
+      <FilterSvgWrapper onClick={openFilterMenu}>
         <FilterSvg />
       </FilterSvgWrapper>
     </Wrapper>

@@ -3,9 +3,17 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { themeReducer } from "src/store/reducers/themeReducer";
 import { userReducer } from "src/store/reducers/userReducer";
-import { favPostsReducer } from "src/store/reducers/favPostsReducer";
+import { favFilmsReducer } from "src/store/reducers/favFilmsReducer";
+import { filmsReducer } from "src/store/reducers/filmsReducer";
+import { filterMenuReducer } from "src/store/reducers/filterMenuReducer";
 
-const rootReducer = combineReducers({ theme: themeReducer, user: userReducer, favPosts: favPostsReducer });
+const rootReducer = combineReducers({
+  theme: themeReducer,
+  user: userReducer,
+  favFilms: favFilmsReducer,
+  films: filmsReducer,
+  filterMenu: filterMenuReducer,
+});
 
 export const store = createStore(
   rootReducer,

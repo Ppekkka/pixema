@@ -5,7 +5,8 @@ interface IProps {
 }
 
 export const Wrapper = styled.div`
-  width: 264px;
+  margin-top: 24px;
+  max-width: 264px;
   border-radius: 10px;
   background-color: ${(props) => props.theme.palette.primary.darkGrey};
 `;
@@ -17,7 +18,10 @@ export const SectionWrapper = styled.div<IProps>`
   &:first-child {
     border-radius: 10px 10px 0 0;
 
-    ${(props) => props.$isAuthorized ? `border-bottom: 1px solid ${props.theme.palette.primary.grey}` : ''}
+    ${(props) =>
+      props.$isAuthorized
+        ? `border-bottom: 1px solid ${props.theme.palette.primary.grey}`
+        : ""}
   }
 
   &:last-child {
@@ -26,15 +30,15 @@ export const SectionWrapper = styled.div<IProps>`
 `;
 
 export const SectionText = styled.p`
-font-family: "Exo 2", sans-serif;
-font-size: 16px;
-font-weight: 500;
-line-height: 24px;
-text-align: left;
-color: white;
-cursor: pointer;
+  font-family: "Exo 2", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: white;
+  cursor: pointer;
 
-&:hover {
-    color: #7B61FF;
-}
+  &:hover {
+    color: #7b61ff;
+  }
 `;
