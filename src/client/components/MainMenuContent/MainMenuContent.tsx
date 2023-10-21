@@ -1,5 +1,8 @@
-import React, { useState } from "react";
-import { GetColor } from "src/client/components/MainMenuContent/helpers";
+import React, { useState, useEffect } from "react";
+import {
+  GetColor,
+  getFilmsPerList,
+} from "src/client/components/MainMenuContent/helpers";
 import {
   Wrapper,
   SectionWrapper,
@@ -9,44 +12,57 @@ import BookmarkSvg from "src/client/components/Svg/BookmarkSvg";
 import FireSvg from "src/client/components/Svg/FireSvg";
 import HomeSvg from "src/client/components/Svg/HomeSvg";
 import SettingsSvg from "src/client/components/Svg/SettingsSvg";
-
-export enum SectionsEnum {
-  HOME = "HOME",
-  TRENDS = "TRENDS",
-  FAVOURITES = "FAVOURITES",
-  SETTINGS = "SETTINGS",
-}
+import { useAction } from "src/store/hooks/useAction";
+import { useSelector } from "react-redux";
+import { sectionsSelectors } from "src/store/selectors/sectionsSelectors";
+import { sectionsEnum } from "src/globalTypes";
 
 const MainMenuContent = () => {
-  const [selected, setSelected] = useState(SectionsEnum.HOME);
+  const defaultSection = useSelector(sectionsSelectors.getSection);
 
-  const handleSelect = (section: SectionsEnum) => {
-    setSelected(section);
+  const [selectedSection, setSelectedSection] = useState(defaultSection);
+
+  const handleSelect = (section: sectionsEnum) => {
+    setSelectedSection(section);
   };
+
+  const { setFilmsAsync, changeSection } = useAction();
+  
+  const width = window.innerWidth;
+  const filmsPerList = getFilmsPerList(width);
+
+  useEffect(() => {
+    changeSection(selectedSection);
+    if (selectedSection === sectionsEnum.TRENDS) {
+      setFilmsAsync(true, true, filmsPerList, 1);
+    }
+  }, [selectedSection]);
 
   return (
     <Wrapper>
-      <SectionWrapper onClick={() => handleSelect(SectionsEnum.HOME)}>
-        <HomeSvg fill={GetColor(SectionsEnum.HOME, selected)} />
-        <SectionTitle $selected={SectionsEnum.HOME === selected}>
+      <SectionWrapper onClick={() => handleSelect(sectionsEnum.HOME)}>
+        <HomeSvg fill={GetColor(sectionsEnum.HOME, selectedSection)} />
+        <SectionTitle $selected={sectionsEnum.HOME === selectedSection}>
           Home
         </SectionTitle>
       </SectionWrapper>
-      <SectionWrapper onClick={() => handleSelect(SectionsEnum.TRENDS)}>
-        <FireSvg fill={GetColor(SectionsEnum.TRENDS, selected)} />
-        <SectionTitle $selected={SectionsEnum.TRENDS === selected}>
+      <SectionWrapper onClick={() => handleSelect(sectionsEnum.TRENDS)}>
+        <FireSvg fill={GetColor(sectionsEnum.TRENDS, selectedSection)} />
+        <SectionTitle $selected={sectionsEnum.TRENDS === selectedSection}>
           Trends
         </SectionTitle>
       </SectionWrapper>
-      <SectionWrapper onClick={() => handleSelect(SectionsEnum.FAVOURITES)}>
-        <BookmarkSvg fill={GetColor(SectionsEnum.FAVOURITES, selected)} />
-        <SectionTitle $selected={SectionsEnum.FAVOURITES === selected}>
+      <SectionWrapper onClick={() => handleSelect(sectionsEnum.FAVOURITES)}>
+        <BookmarkSvg
+          fill={GetColor(sectionsEnum.FAVOURITES, selectedSection)}
+        />
+        <SectionTitle $selected={sectionsEnum.FAVOURITES === selectedSection}>
           Favorites
         </SectionTitle>
       </SectionWrapper>
-      <SectionWrapper onClick={() => handleSelect(SectionsEnum.SETTINGS)}>
-        <SettingsSvg fill={GetColor(SectionsEnum.SETTINGS, selected)} />
-        <SectionTitle $selected={SectionsEnum.SETTINGS === selected}>
+      <SectionWrapper onClick={() => handleSelect(sectionsEnum.SETTINGS)}>
+        <SettingsSvg fill={GetColor(sectionsEnum.SETTINGS, selectedSection)} />
+        <SectionTitle $selected={sectionsEnum.SETTINGS === selectedSection}>
           Settings
         </SectionTitle>
       </SectionWrapper>

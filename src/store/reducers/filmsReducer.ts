@@ -1,4 +1,3 @@
-import { IFilm, ISearchFilms } from "src/globalTypes";
 import {
   ISetFilmsPayload,
   filmsActionsEnum,
@@ -43,6 +42,19 @@ export const filmsReducer = (state = defaultState, action: IFilmsAction) => {
 
         return { ...state, filmsObject: remasteredFilmsObject };
       }
+    }
+
+    case filmsActionsEnum.SELECT_NEW_SECTION: {
+      const filmsArr = action.payload.apiFilmsResponse.Search;
+      const newFilmsObject = getFilmsObject(
+        filmsArr,
+        action.payload.filmsPerList
+      );
+      return {
+        ...state,
+        filmsObject: newFilmsObject,
+        totalresults: action.payload.apiFilmsResponse.totalResults,
+      };
     }
 
     default:

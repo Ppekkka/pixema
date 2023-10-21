@@ -15,6 +15,9 @@ export interface IState {
     filmsObject: IFilmsObject;
     totalresults: number;
   };
+  sections: {
+    section: sectionsEnum;
+  };
   favFilms: {
     favFilms: ISearchFilm[];
   };
@@ -55,7 +58,10 @@ export interface IFilm {
   Website: string;
 }
 
-export type ISearchFilm = Pick<IFilm, "Poster" | "Title" | "imdbRating" | "Year" | "Type">;
+export type ISearchFilm = Pick<
+  IFilm,
+  "Poster" | "Title" | "imdbRating" | "Year" | "Type"
+>;
 
 export interface ISearchFilms {
   Search: ISearchFilm[];
@@ -72,4 +78,11 @@ export interface IFilmsObject {
 export interface IFilmsObject {
   arrayOfFilmsList: Array<ISearchFilm[]>;
   remnant: ISearchFilm[];
+}
+
+export enum sectionsEnum {
+  HOME = "HOME",
+  TRENDS = "TRENDS",
+  FAVOURITES = "FAVOURITES",
+  SETTINGS = "SETTINGS",
 }

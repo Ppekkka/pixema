@@ -6,6 +6,7 @@ import { themeActions } from "src/store/actions/themeActions";
 import { userActions } from "src/store/actions/userActions";
 import { filterMenuActions } from "src/store/actions/filterMenuActions";
 import { setFilmsAsync } from "src/store/thunks/setFilmsAsync";
+import { sectionsActions } from "src/store/actions/sectionsActions";
 
 export const useAction = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ export const useAction = () => {
       ...themeActions,
       ...userActions,
       ...filterMenuActions,
+      ...sectionsActions,
       setFilmsAsync,
     },
     dispatch
