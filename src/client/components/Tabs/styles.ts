@@ -6,15 +6,15 @@ type TabType = {
 };
 
 export const StyledTabsWrapper = styled.div`
-  max-width: max-content;
+  width: 100%;
   height: 59px;
   border: 2px solid ${(props) => props.theme.palette.primary.grey};
   border-radius: 14px;
-  display: flex;
+  display: grid;
+  grid: 1fr / repeat(2, 1fr);
 `;
 
 export const StyledTab = styled.button<TabType>`
-  width: 216px;
   height: 56px;
   border: 0;
   font-family: "Exo 2", sans-serif;

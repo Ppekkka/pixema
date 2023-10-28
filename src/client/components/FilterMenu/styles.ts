@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   transition: 0.3s;
   position: fixed;
-  z-index: 2;
+  z-index: 999;
   top: 0;
   right: 0;
-  width: 27%;
+  width: clamp(41%, 1.2vw, 27%);;
   height: 100%;
   background-color: ${(props) => props.theme.palette.primary.darkGrey};
   padding: 40px 48px;

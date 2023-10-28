@@ -7,6 +7,7 @@ import { favFilmsReducer } from "src/store/reducers/favFilmsReducer";
 import { filmsReducer } from "src/store/reducers/filmsReducer";
 import { filterMenuReducer } from "src/store/reducers/filterMenuReducer";
 import { sectionsReducer } from "src/store/reducers/sectionsReducer";
+import { filtersReducer } from "src/store/reducers/filtersReducer";
 
 const rootReducer = combineReducers({
   theme: themeReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   films: filmsReducer,
   filterMenu: filterMenuReducer,
   sections: sectionsReducer,
+  filters: filtersReducer,
 });
 
 export const store = createStore(

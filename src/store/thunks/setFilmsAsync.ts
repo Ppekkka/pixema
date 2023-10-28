@@ -19,7 +19,7 @@ const getRatings = async () => {
 };
 
 export const setFilmsAsync = (
-  isSectionWasChanged: boolean,
+  isNewFilms: boolean,
   isTrend: boolean,
   filmsPerList: number,
   page?: number
@@ -43,10 +43,10 @@ export const setFilmsAsync = (
 
       const readyFilmsData = { ...films, Search: fullFilms };
 
-      if (fullFilms)
-        isSectionWasChanged
+      if (fullFilms) {
+        isNewFilms
           ? dispatch(
-              filmsActions.selectNewSection({
+              filmsActions.setNewFilms({
                 apiFilmsResponse: readyFilmsData,
                 filmsPerList,
               })
@@ -57,8 +57,18 @@ export const setFilmsAsync = (
                 filmsPerList,
               })
             );
+      }
     } catch (error) {
-      console.log(error);
+      const emptyObject = {
+        Search: [],
+        totalResults: 0,
+      };
+      dispatch(
+        filmsActions.setFilms({
+          apiFilmsResponse: emptyObject,
+          filmsPerList,
+        })
+      );
     }
   };
 };

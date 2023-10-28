@@ -1,21 +1,26 @@
-export const getFilmsPerList = (width: number) => {
-  if (
-    width >= 1440 ||
-    (width < 1280 && width >= 1024) ||
-    (width < 768 && width >= 480)
-  )
-    return 8;
-  else if (width < 1440 && width >= 1280) return 6;
-  else if (width < 1024 && width >= 768) return 9;
-  else return 9;
-};
+import { ISearchFilm } from "src/globalTypes";
 
-const getAllPages = (totalResults: number) => {
-  const pages = Math.ceil(totalResults / 10);
-  return pages;
-};
 
-export const getIsThereMoreFilms = (totalResults: number, page: number) => {
-  const allPages = getAllPages(totalResults);
-  return !(allPages === page);
+
+// const getAllPages = (totalResults: number) => {
+//   const pages = Math.ceil(totalResults / 10);
+//   return pages;
+// };
+
+// export const getIsThereMoreFilms = (
+//   totalResults: number,
+//   page: number,
+//   remnant: ISearchFilm[]
+// ) => {
+//   const allPages = getAllPages(totalResults);
+//   return !(allPages === page) || remnant.length;
+// };
+
+export const getPage = (
+  page: number,
+  firstFilm: ISearchFilm,
+  lastFilm: ISearchFilm
+) => {
+  const shouldUpdatePage = !(firstFilm.Year === lastFilm.Year);
+  return shouldUpdatePage ? 1 : page + 1;
 };

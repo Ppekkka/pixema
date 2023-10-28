@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyledTab,
   StyledTabsWrapper,
 } from "src/client/components/Tabs/styles";
+import { sortByEnum } from "src/globalTypes";
+import { useAction } from "src/store/hooks/useAction";
 
 interface TabsProps {
   firstText: string;
@@ -14,11 +16,21 @@ enum valuesEnum {
   SECOND = "SRCOND",
 }
 
-const Tabs = ({firstText, secondText}: TabsProps) => {
+const Tabs = ({ firstText, secondText }: TabsProps) => {
   const [active, setActive] = useState(valuesEnum.FIRST);
   const handleClickOnTab = (activeValue: valuesEnum) => {
     setActive(activeValue);
   };
+
+  const { changeFilters } = useAction();
+
+  useEffect(() => {
+    if (firstText === "Rating" && secondText === "Year") {
+      const sortBy =
+        active === valuesEnum.FIRST ? sortByEnum.RATING : sortByEnum.YEAR;
+      changeFilters({ sortBy });
+    }
+  }, [active]);
 
   return (
     <StyledTabsWrapper>
@@ -26,12 +38,16 @@ const Tabs = ({firstText, secondText}: TabsProps) => {
         $active={active === valuesEnum.FIRST}
         onClick={() => handleClickOnTab(valuesEnum.FIRST)}
         $isFirst={true}
-      >{firstText}</StyledTab>
+      >
+        {firstText}
+      </StyledTab>
       <StyledTab
         $active={active === valuesEnum.SECOND}
         onClick={() => handleClickOnTab(valuesEnum.SECOND)}
         $isFirst={false}
-      >{secondText}</StyledTab>
+      >
+        {secondText}
+      </StyledTab>
     </StyledTabsWrapper>
   );
 };

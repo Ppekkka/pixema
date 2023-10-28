@@ -44,7 +44,7 @@ export const filmsReducer = (state = defaultState, action: IFilmsAction) => {
       }
     }
 
-    case filmsActionsEnum.SELECT_NEW_SECTION: {
+    case filmsActionsEnum.SET_NEW_FILMS: {
       const filmsArr = action.payload.apiFilmsResponse.Search;
       const newFilmsObject = getFilmsObject(
         filmsArr,

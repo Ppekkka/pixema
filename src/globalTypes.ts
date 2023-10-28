@@ -24,6 +24,7 @@ export interface IState {
   filterMenu: {
     filterMenuIsOpened: boolean;
   };
+    filters: IFilters;
 }
 
 interface Rating {
@@ -75,14 +76,26 @@ export interface IFilmsObject {
   remnant: ISearchFilm[];
 }
 
-export interface IFilmsObject {
-  arrayOfFilmsList: Array<ISearchFilm[]>;
-  remnant: ISearchFilm[];
-}
-
 export enum sectionsEnum {
   HOME = "HOME",
   TRENDS = "TRENDS",
   FAVOURITES = "FAVOURITES",
   SETTINGS = "SETTINGS",
+}
+
+export enum sortByEnum {
+  YEAR = "YEAR",
+  RATING = "RATING",
+}
+
+export interface IFilters {
+  sortBy?: sortByEnum;
+
+  yearFrom: number;
+  yearTo: number;
+
+  ratingFrom: number;
+  ratingTo: number;
+
+  useFilters: boolean;
 }

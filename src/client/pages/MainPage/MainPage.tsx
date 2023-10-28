@@ -11,23 +11,29 @@ import {
 } from "src/client/pages/MainPage/styles";
 import Card from "src/client/components/Card/Card";
 import MainMenuContent from "src/client/components/MainMenuContent/MainMenuContent";
-import { getFilmsPerList } from "src/client/pages/MainPage/helpers";
+import { getPage } from "src/client/pages/MainPage/helpers";
 import { sectionsSelectors } from "src/store/selectors/sectionsSelectors";
 import { sectionsEnum } from "src/globalTypes";
+import { getFilmsPerList } from "src/client/helpers";
+import { filtersSelectors } from "src/store/selectors/filtersSelectors";
 
 const MainPage = () => {
   const [page, setPage] = useState(1);
   const [isThereMoreFilms, setIsThereMoreFilms] = useState(true);
 
-  const { setFilmsAsync } = useAction();
+  const { setFilmsAsync, setFilteredFilmsAsync } = useAction();
 
   const width = useMemo(() => window.innerWidth, []);
 
   const filmsPerList = useMemo(() => getFilmsPerList(width), []);
-  const isTrend = useSelector(sectionsSelectors.getSection) === sectionsEnum.TRENDS;
+  const isTrend =
+    useSelector(sectionsSelectors.getSection) === sectionsEnum.TRENDS;
+  const filters = useSelector(filtersSelectors.getFilters);
 
   useEffect(() => {
-    setFilmsAsync(false, isTrend, filmsPerList, page);
+    filters.useFilters
+      ? setFilteredFilmsAsync(false, filmsPerList, page, filters)
+      : setFilmsAsync(false, isTrend, filmsPerList, page);
   }, [page]);
 
   const filmsResponse = useSelector(filmsSelectors.getFilms);
@@ -38,8 +44,8 @@ const MainPage = () => {
 
   useEffect(() => {
     if (
-      filmsResponse.filmsObject.arrayOfFilmsList.length &&
-      !filmsResponse.filmsObject.remnant.length
+      !filmsResponse.filmsObject.remnant.length &&
+      filters.yearTo > filters.ratingFrom
     )
       setIsThereMoreFilms(false);
   }, [filmsArr]);
@@ -68,7 +74,20 @@ const MainPage = () => {
           })}
       </CardsContentWrapper>
       {isThereMoreFilms && (
-        <ShowMoreButton onClick={() => setPage(page + 1)}>
+        <ShowMoreButton
+          onClick={() => {
+            const newPage = getPage(
+              page,
+              filmsArr[filmsArr.length - 1][0],
+              filmsResponse.filmsObject.remnant[
+                filmsResponse.filmsObject.remnant.length - 1
+              ]
+            );
+            if (page === newPage) {
+              setFilteredFilmsAsync(false, filmsPerList, page, filters);
+            } else setPage(newPage);
+          }}
+        >
           Show more
         </ShowMoreButton>
       )}

@@ -4,7 +4,7 @@ export const StyledHeader = styled.header`
   background-color: ${(props) => props.theme.palette.primary.background};
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 500;
 `;
 
 export const LogoWrapper = styled.div`

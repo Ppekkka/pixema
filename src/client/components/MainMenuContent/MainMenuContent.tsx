@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   GetColor,
-  getFilmsPerList,
 } from "src/client/components/MainMenuContent/helpers";
 import {
   Wrapper,
@@ -16,6 +15,7 @@ import { useAction } from "src/store/hooks/useAction";
 import { useSelector } from "react-redux";
 import { sectionsSelectors } from "src/store/selectors/sectionsSelectors";
 import { sectionsEnum } from "src/globalTypes";
+import { getFilmsPerList } from "src/client/helpers";
 
 const MainMenuContent = () => {
   const defaultSection = useSelector(sectionsSelectors.getSection);
