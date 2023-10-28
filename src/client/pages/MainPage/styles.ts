@@ -53,13 +53,30 @@ export const ShowMoreButton = styled.button`
   border: 0;
   cursor: pointer;
   bottom: 0;
-  right: calc(50% - 115.41px);
+  right: calc(50% - 115.41px / 2);
 
   &:hover {
     background-color: ${(props) => props.theme.palette.primary.darkGrey};
   }
 
   @media (min-width: 1440px) {
-    right: calc(50% - 115.41px - clamp(123px, 1.2vw, 48%));
+    right: calc(50% - 115.41px / 2 - clamp(123px, 1.2vw, 48%));
+  }
+`;
+
+export const EmptyStateText = styled.p`
+  font-family: "Exo 2", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #80858b;
+  position: absolute;
+  right: calc(50% - 274px / 2);
+  top: 50%;
+
+  @media (min-width: 1440px) {
+    right: calc(50% - 137px - clamp(123px, 1.2vw, 48%));
   }
 `;

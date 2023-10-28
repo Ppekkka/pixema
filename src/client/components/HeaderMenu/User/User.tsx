@@ -10,8 +10,8 @@ import {
   getIcon,
   getUserText,
 } from "src/client/components/HeaderMenu/User/helpers";
-import { userSelectors } from "src/store/selectors/userSelectors";
 import { useSelector } from "react-redux";
+import { selectors } from "src/store/selectors/seelctors";
 
 
 const User = () => {
@@ -21,7 +21,7 @@ const User = () => {
     setMenuIsOpened(!menuIsOpened);
   };
 
-  const { username } = useSelector(userSelectors.getUserInfo);
+  const { username } = useSelector(selectors.getUserInfo);
 
   return (
     <Wrapper onClick={handleOpenMenu}>

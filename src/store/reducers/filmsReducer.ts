@@ -1,3 +1,4 @@
+import { IState } from "src/globalTypes";
 import {
   ISetFilmsPayload,
   filmsActionsEnum,
@@ -9,7 +10,8 @@ const defaultState = {
     arrayOfFilmsList: [],
     remnant: [],
   },
-  totalresults: 0,
+  totalResults: 0,
+  searchTitle: "",
 };
 
 interface IFilmsAction {
@@ -20,7 +22,7 @@ interface IFilmsAction {
 export const filmsReducer = (state = defaultState, action: IFilmsAction) => {
   switch (action.type) {
     case filmsActionsEnum.SET_FILMS: {
-      if (!state.totalresults) {
+      if (!state.totalResults) {
         const filmsArr = action.payload.apiFilmsResponse.Search;
         const newFilmsObject = getFilmsObject(
           filmsArr,
@@ -29,7 +31,8 @@ export const filmsReducer = (state = defaultState, action: IFilmsAction) => {
         return {
           ...state,
           filmsObject: newFilmsObject,
-          totalresults: action.payload.apiFilmsResponse.totalResults,
+          totalResults: +action.payload.apiFilmsResponse.totalResults,
+          searchTitle: "",
         };
       } else {
         const filmsArr = action.payload.apiFilmsResponse.Search;
@@ -40,7 +43,11 @@ export const filmsReducer = (state = defaultState, action: IFilmsAction) => {
           state.filmsObject
         );
 
-        return { ...state, filmsObject: remasteredFilmsObject };
+        return {
+          ...state,
+          filmsObject: remasteredFilmsObject,
+          searchTitle: "",
+        };
       }
     }
 
@@ -53,8 +60,43 @@ export const filmsReducer = (state = defaultState, action: IFilmsAction) => {
       return {
         ...state,
         filmsObject: newFilmsObject,
-        totalresults: action.payload.apiFilmsResponse.totalResults,
+        totalResults: +action.payload.apiFilmsResponse.totalResults,
+        searchTitle: "",
       };
+    }
+
+    case filmsActionsEnum.SEARCH_FILMS: {
+      if (!action.payload.apiFilmsResponse.totalResults) {
+        return {
+          ...state,
+          filmsObject: { arrayOfFilmsList: [], remnant: [] },
+          totalResults: 0,
+          searchTitle: action.payload.searchTitle,
+        };
+      }
+      if (action.payload.searchTitle !== state.searchTitle) {
+        const filmsArr = action.payload.apiFilmsResponse.Search;
+        const newFilmsObject = getFilmsObject(
+          filmsArr,
+          action.payload.filmsPerList
+        );
+        return {
+          ...state,
+          filmsObject: newFilmsObject,
+          totalResults: +action.payload.apiFilmsResponse.totalResults,
+          searchTitle: action.payload.searchTitle,
+        };
+      } else {
+        const filmsArr = action.payload.apiFilmsResponse.Search;
+
+        const remasteredFilmsObject = getFilmsObject(
+          filmsArr,
+          action.payload.filmsPerList,
+          state.filmsObject
+        );
+
+        return { ...state, filmsObject: remasteredFilmsObject };
+      }
     }
 
     default:

@@ -1,5 +1,4 @@
 import { Provider, useSelector } from "react-redux";
-import { themeSelectors } from "src/store/selectors/themeSelectors";
 import { store } from "src/store";
 import { createTheme } from "src/styles/theme";
 import { ThemeProvider } from "styled-components";
@@ -8,9 +7,10 @@ import Layout from "src/client/Layout/Layout";
 import { clientRoutes } from "src/routes/clientRoutes";
 import PrivateRoute from "src/routes/PrivateRoute";
 import MainPage from "src/client/pages/MainPage/MainPage";
+import { selectors } from "src/store/selectors/seelctors";
 
 function App() {
-  const themeMode = useSelector(themeSelectors.getThemeMode);
+  const themeMode = useSelector(selectors.getThemeMode);
 
   return (
     <Provider store={store}>

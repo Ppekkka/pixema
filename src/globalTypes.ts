@@ -13,7 +13,8 @@ export interface IState {
   };
   films: {
     filmsObject: IFilmsObject;
-    totalresults: number;
+    totalResults: number;
+    searchTitle?: string;
   };
   sections: {
     section: sectionsEnum;
@@ -24,7 +25,7 @@ export interface IState {
   filterMenu: {
     filterMenuIsOpened: boolean;
   };
-    filters: IFilters;
+  filters: IFilters;
 }
 
 interface Rating {
@@ -67,6 +68,7 @@ export type ISearchFilm = Pick<
 export interface ISearchFilms {
   Search: ISearchFilm[];
   totalResults: number;
+  Response?: "True" | "False";
 }
 
 export type ICard = Pick<IFilm, "Poster" | "Title" | "imdbRating">;

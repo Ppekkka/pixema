@@ -1,12 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { themeSelectors } from "src/store/selectors/themeSelectors";
-
 import { Wrapper, StyledPixemaSvg } from "src/client/components/Svg/styles";
 import { themeModes } from "src/styles/theme";
+import { selectors } from "src/store/selectors/seelctors";
 
 const PixemaSvg = () => {
-  const themeMode = useSelector(themeSelectors.getThemeMode);
+  const themeMode = useSelector(selectors.getThemeMode);
 
   return (
     <Wrapper>

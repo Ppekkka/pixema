@@ -18,9 +18,9 @@ import CrossSvg from "src/client/components/Svg/CrossSvg";
 import Tabs from "src/client/components/Tabs/Tabs";
 import { useAction } from "src/store/hooks/useAction";
 import { useSelector } from "react-redux";
-import { filtersSelectors } from "src/store/selectors/filtersSelectors";
 import { sectionsEnum } from "src/globalTypes";
 import { getFilmsPerList } from "src/client/helpers";
+import { selectors } from "src/store/selectors/seelctors";
 
 const fromToObj = {
   yearFrom: 0,
@@ -58,7 +58,7 @@ const FilterMenu = () => {
 
   const width = useMemo(() => window.innerWidth, []);
 
-  const globalFilters = useSelector(filtersSelectors.getFilters);
+  const globalFilters = useSelector(selectors.getFilters);
 
   const showResults = () => {
     if (globalFilters.ratingFrom && globalFilters.ratingFrom < 0) alert("Rating can`t be less then 0!");

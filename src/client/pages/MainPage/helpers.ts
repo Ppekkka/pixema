@@ -1,26 +1,11 @@
 import { ISearchFilm } from "src/globalTypes";
 
-
-
-// const getAllPages = (totalResults: number) => {
-//   const pages = Math.ceil(totalResults / 10);
-//   return pages;
-// };
-
-// export const getIsThereMoreFilms = (
-//   totalResults: number,
-//   page: number,
-//   remnant: ISearchFilm[]
-// ) => {
-//   const allPages = getAllPages(totalResults);
-//   return !(allPages === page) || remnant.length;
-// };
-
 export const getPage = (
   page: number,
   firstFilm: ISearchFilm,
-  lastFilm: ISearchFilm
+  lastFilm: ISearchFilm,
+  yearFrom: number
 ) => {
-  const shouldUpdatePage = !(firstFilm.Year === lastFilm.Year);
+  const shouldUpdatePage = !(firstFilm.Year === lastFilm.Year) && yearFrom;
   return shouldUpdatePage ? 1 : page + 1;
 };

@@ -13,12 +13,12 @@ import HomeSvg from "src/client/components/Svg/HomeSvg";
 import SettingsSvg from "src/client/components/Svg/SettingsSvg";
 import { useAction } from "src/store/hooks/useAction";
 import { useSelector } from "react-redux";
-import { sectionsSelectors } from "src/store/selectors/sectionsSelectors";
 import { sectionsEnum } from "src/globalTypes";
 import { getFilmsPerList } from "src/client/helpers";
+import { selectors } from "src/store/selectors/seelctors";
 
 const MainMenuContent = () => {
-  const defaultSection = useSelector(sectionsSelectors.getSection);
+  const defaultSection = useSelector(selectors.getSection);
 
   const [selectedSection, setSelectedSection] = useState(defaultSection);
 

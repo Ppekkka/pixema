@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import UserMenuContent from "src/client/components/HeaderMenu/UserMenuContent/UserMenuContent";
 import User from "src/client/components/HeaderMenu/User/User";
-import { userSelectors } from "src/store/selectors/userSelectors";
 import { useSelector } from "react-redux";
 import HamburgerMenu from "src/client/components/HeaderMenu/HamburgerMenu/HamburgerMenu";
 import HamburgerMenuContent from "src/client/components/HeaderMenu/HamburgerMenuContent/HamburgerMenuContent";
+import { selectors } from "src/store/selectors/seelctors";
 
 const HeaderMenu = () => {
   const [menuIsOpened, setMenuIsOpened] = useState(false);
@@ -12,7 +12,7 @@ const HeaderMenu = () => {
   const handleOpenMenu = () => {
     setMenuIsOpened(!menuIsOpened);
   };
-  const { username } = useSelector(userSelectors.getUserInfo);
+  const { username } = useSelector(selectors.getUserInfo);
 
   const width = window.innerWidth;
   const breakpoint = 1280;

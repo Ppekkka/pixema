@@ -3,11 +3,13 @@ import { ISearchFilms } from "src/globalTypes";
 export enum filmsActionsEnum {
   SET_FILMS = "SET_FILMS",
   SET_NEW_FILMS = "SET_NEW_FILMS",
+  SEARCH_FILMS = "SEARCH_FILMS",
 }
 
 export interface ISetFilmsPayload {
   apiFilmsResponse: ISearchFilms;
   filmsPerList: number;
+  searchTitle?: string;
 }
 
 export const filmsActions = {
@@ -16,5 +18,8 @@ export const filmsActions = {
   },
   setNewFilms: (payload: ISetFilmsPayload) => {
     return { type: filmsActionsEnum.SET_NEW_FILMS, payload };
+  },
+  searchFilms: (payload: ISetFilmsPayload) => {
+    return { type: filmsActionsEnum.SEARCH_FILMS, payload };
   },
 };

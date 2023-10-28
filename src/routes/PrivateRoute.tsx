@@ -1,10 +1,10 @@
 import React from 'react';
-import { userSelectors } from "src/store/selectors/userSelectors";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { selectors } from 'src/store/selectors/seelctors';
 
 const PrivateRoute = ({children}: any) => {
-    const { username } = useSelector(userSelectors.getUserInfo);
+    const { username } = useSelector(selectors.getUserInfo);
 
     return username ? children : <Navigate to='/'/>
 };

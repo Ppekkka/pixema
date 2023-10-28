@@ -9,6 +9,7 @@ import { setFilmsAsync } from "src/store/thunks/setFilmsAsync";
 import { sectionsActions } from "src/store/actions/sectionsActions";
 import { filtersACtions } from "src/store/actions/filtersActions";
 import { setFilteredFilmsAsync } from "src/store/thunks/setFilteredFilmsAsync";
+import { setSearchedFilmsAsync } from "src/store/thunks/setSearchedFilmsAsync";
 
 export const useAction = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export const useAction = () => {
       ...filtersACtions,
       setFilmsAsync,
       setFilteredFilmsAsync,
+      setSearchedFilmsAsync,
     },
     dispatch
   );
