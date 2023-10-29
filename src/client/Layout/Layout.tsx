@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import FilterMenu from "src/client/components/FilterMenu/FilterMenu";
 import { PopupIsOpenedBG } from "src/client/Layout/styles";
 import { Outlet } from "react-router-dom";
-import { selectors } from "src/store/selectors/seelctors";
+import { selectors } from "src/store/selectors/selctors";
 
 const Layout = () => {
   const filterMenuIsOpened = useSelector(selectors.getFilterMenuIsOpened);

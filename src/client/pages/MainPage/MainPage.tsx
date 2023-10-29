@@ -14,7 +14,7 @@ import MainMenuContent from "src/client/components/MainMenuContent/MainMenuConte
 import { getPage } from "src/client/pages/MainPage/helpers";
 import { sectionsEnum } from "src/globalTypes";
 import { getFilmsPerList } from "src/client/helpers";
-import { selectors } from "src/store/selectors/seelctors";
+import { selectors } from "src/store/selectors/selctors";
 
 const MainPage = () => {
   const [page, setPage] = useState(1);
@@ -56,7 +56,7 @@ const MainPage = () => {
       setIsThereMoreFilms(false);
     } else if (!filmsResponse.totalResults && filmsResponse.searchTitle)
       setIsThereMoreFilms(false);
-      else if (filmsResponse.totalResults) setIsThereMoreFilms(true)
+    else if (filmsResponse.totalResults) setIsThereMoreFilms(true);
   }, [filmsArr]);
 
   return (
@@ -71,6 +71,7 @@ const MainPage = () => {
                 {filmsList.map((film, idx) => {
                   return (
                     <Card
+                      imdbID={film.imdbID}
                       key={idx}
                       Poster={film.Poster}
                       Title={film.Title}

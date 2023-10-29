@@ -15,7 +15,7 @@ import { useAction } from "src/store/hooks/useAction";
 import { useSelector } from "react-redux";
 import { sectionsEnum } from "src/globalTypes";
 import { getFilmsPerList } from "src/client/helpers";
-import { selectors } from "src/store/selectors/seelctors";
+import { selectors } from "src/store/selectors/selctors";
 
 const MainMenuContent = () => {
   const defaultSection = useSelector(selectors.getSection);

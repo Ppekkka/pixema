@@ -4,15 +4,20 @@ import {
   LogoWrapper,
   Wrapper,
   RightContentWrapper,
-  FlexWrapper
+  FlexWrapper,
 } from "src/client/Layout/Header/styles";
 import HeaderMenu from "src/client/components/HeaderMenu/HeaderMenu";
 import Search from "src/client/components/Search/Search";
 import PixemaSvg from "src/client/components/Svg/PixemaSvg";
+import { useLocation } from 'react-router-dom';
+
 
 const Header = () => {
   const width = window.innerWidth;
   const breakpoint = 768;
+
+  let link = useLocation().pathname;
+  const isMain = link.includes('main')
 
   return width >= breakpoint ? (
     <StyledHeader>
@@ -20,10 +25,12 @@ const Header = () => {
         <LogoWrapper>
           <PixemaSvg />
         </LogoWrapper>
-        <RightContentWrapper>
-          <Search />
-          <HeaderMenu />
-        </RightContentWrapper>
+        {isMain && (
+          <RightContentWrapper>
+            {<Search />}
+            <HeaderMenu />
+          </RightContentWrapper>
+        )}
       </Wrapper>
     </StyledHeader>
   ) : (
@@ -33,10 +40,10 @@ const Header = () => {
           <LogoWrapper>
             <PixemaSvg />
           </LogoWrapper>
-          <HeaderMenu />
+          {isMain && <HeaderMenu />}
         </FlexWrapper>
 
-        <Search />
+        {isMain && <Search />}
       </Wrapper>
     </StyledHeader>
   );

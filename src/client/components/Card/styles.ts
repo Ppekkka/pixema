@@ -70,6 +70,7 @@ export const CardTitle = styled.p`
   color: ${(props) => props.theme.palette.primary.text};
   cursor: pointer;
   margin: 24px 0 4px 0;
+  text-decoration: none;
 
   &:hover {
     color: #7b61ff;

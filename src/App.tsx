@@ -7,7 +7,7 @@ import Layout from "src/client/Layout/Layout";
 import { clientRoutes } from "src/routes/clientRoutes";
 import PrivateRoute from "src/routes/PrivateRoute";
 import MainPage from "src/client/pages/MainPage/MainPage";
-import { selectors } from "src/store/selectors/seelctors";
+import { selectors } from "src/store/selectors/selctors";
 
 function App() {
   const themeMode = useSelector(selectors.getThemeMode);

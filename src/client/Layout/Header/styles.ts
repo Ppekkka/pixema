@@ -20,6 +20,11 @@ export const Wrapper = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    padding: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 40px;
   }
 `;
 

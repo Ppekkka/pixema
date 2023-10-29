@@ -40,7 +40,8 @@ export const CardsWrapper = styled.div`
 
   @media (max-width: 480px) {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 

@@ -4,7 +4,7 @@ import User from "src/client/components/HeaderMenu/User/User";
 import { useSelector } from "react-redux";
 import HamburgerMenu from "src/client/components/HeaderMenu/HamburgerMenu/HamburgerMenu";
 import HamburgerMenuContent from "src/client/components/HeaderMenu/HamburgerMenuContent/HamburgerMenuContent";
-import { selectors } from "src/store/selectors/seelctors";
+import { selectors } from "src/store/selectors/selctors";
 
 const HeaderMenu = () => {
   const [menuIsOpened, setMenuIsOpened] = useState(false);

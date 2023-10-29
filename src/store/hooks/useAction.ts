@@ -10,6 +10,8 @@ import { sectionsActions } from "src/store/actions/sectionsActions";
 import { filtersACtions } from "src/store/actions/filtersActions";
 import { setFilteredFilmsAsync } from "src/store/thunks/setFilteredFilmsAsync";
 import { setSearchedFilmsAsync } from "src/store/thunks/setSearchedFilmsAsync";
+import { fullFilmActions } from "src/store/actions/fullFilmActions";
+import { setFullFilmAsync } from "src/store/thunks/setFullFilmAsync";
 
 export const useAction = () => {
   const dispatch = useDispatch();
@@ -23,9 +25,11 @@ export const useAction = () => {
       ...filterMenuActions,
       ...sectionsActions,
       ...filtersACtions,
+      ...fullFilmActions,
       setFilmsAsync,
       setFilteredFilmsAsync,
       setSearchedFilmsAsync,
+      setFullFilmAsync,
     },
     dispatch
   );

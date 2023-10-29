@@ -11,7 +11,7 @@ import {
   getUserText,
 } from "src/client/components/HeaderMenu/User/helpers";
 import { useSelector } from "react-redux";
-import { selectors } from "src/store/selectors/seelctors";
+import { selectors } from "src/store/selectors/selctors";
 
 
 const User = () => {

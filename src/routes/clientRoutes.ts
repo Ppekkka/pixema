@@ -1,3 +1,4 @@
+import ErrorPage from "src/client/pages/ErrorPage/ErrorPage";
 import FilmPage from "src/client/pages/FilmPage/FilmPage";
 import MainPage from "src/client/pages/MainPage/MainPage";
 
@@ -6,20 +7,26 @@ interface IClientRoutes {
   path: string;
   Component: React.FC<any>;
   props?: any;
-  isPrivate: boolean
+  isPrivate: boolean;
 }
 
 export const clientRoutes: IClientRoutes[] = [
-    {
-        id: 1,
-        path: '/main',
-        Component: MainPage,
-        isPrivate: false
-    },
-    {
-      id: 2,
-      path: '/film/:id',
-      Component: FilmPage,
-      isPrivate: false
-    }
-]
+  {
+    id: 1,
+    path: "/main",
+    Component: MainPage,
+    isPrivate: false,
+  },
+  {
+    id: 2,
+    path: "/film/:id",
+    Component: FilmPage,
+    isPrivate: false,
+  },
+  {
+    id: 999,
+    path: "/error",
+    Component: ErrorPage,
+    isPrivate: false,
+  },
+];

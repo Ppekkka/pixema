@@ -20,12 +20,15 @@ export interface IState {
     section: sectionsEnum;
   };
   favFilms: {
-    favFilms: ISearchFilm[];
+    favFilms: IFilm[];
   };
   filterMenu: {
     filterMenuIsOpened: boolean;
   };
   filters: IFilters;
+  film: {
+    film: IFilm;
+  };
 }
 
 interface Rating {
@@ -62,7 +65,7 @@ export interface IFilm {
 
 export type ISearchFilm = Pick<
   IFilm,
-  "Poster" | "Title" | "imdbRating" | "Year" | "Type"
+  "Poster" | "Title" | "imdbRating" | "Year" | "Type" | "imdbID"
 >;
 
 export interface ISearchFilms {
@@ -71,7 +74,7 @@ export interface ISearchFilms {
   Response?: "True" | "False";
 }
 
-export type ICard = Pick<IFilm, "Poster" | "Title" | "imdbRating">;
+export type ICard = Pick<IFilm, "Poster" | "Title" | "imdbRating" | "imdbID">;
 
 export interface IFilmsObject {
   arrayOfFilmsList: Array<ISearchFilm[]>;
