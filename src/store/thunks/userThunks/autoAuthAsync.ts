@@ -19,7 +19,6 @@ export const autoAuthAsync = () => {
         if (validationOfToken) {
           try {
             const userData = await signIn(parsedAccessToken);
-            console.log(userData);
             dispatch(userActions.signIn(userData));
           } catch (error) {
             console.log(error);
@@ -37,7 +36,6 @@ export const autoAuthAsync = () => {
 
               localStorage.setItem("access", JSON.stringify(access));
 
-              console.log(12);
               autoAuthAsync();
             } catch (error) {
               console.log(error);

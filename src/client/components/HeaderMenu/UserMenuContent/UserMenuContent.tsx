@@ -5,19 +5,22 @@ import {
   SectionText,
   SectionLink,
 } from "src/client/components/HeaderMenu/UserMenuContent/styles";
+import { useAction } from "src/store/hooks/useAction";
 
 interface IProps {
   $isAuthorized: boolean;
 }
 
 const UserMenuContent = ({ $isAuthorized }: IProps) => {
+  const { logOutAsync } = useAction();
+
   return $isAuthorized ? (
     <Wrapper>
       <SectionWrapper $isAuthorized>
         <SectionLink to="/settings">Edit profile</SectionLink>
       </SectionWrapper>
       <SectionWrapper $isAuthorized>
-        <SectionText>Log Out</SectionText>
+        <SectionText onClick={logOutAsync}>Log Out</SectionText>
       </SectionWrapper>
     </Wrapper>
   ) : (

@@ -5,7 +5,7 @@ background-color: ${props => props.theme.palette.primary.background}
 `
 
 export const Wrapper = styled.div`
-  padding: 0 3% 64px;
+  padding: 40px 3% 64px;
   display: flex;
   justify-content: space-between;
 `;

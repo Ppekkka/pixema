@@ -1,5 +1,4 @@
 import { Dispatch } from "redux";
-import { userApi } from "src/client/api/userApi";
 import { IUserData } from "src/globalTypes";
 import { userActions } from "src/store/actions/userActions";
 import { getTokens, signIn } from "src/store/thunks/userThunks/helpers";

@@ -16,6 +16,7 @@ import { signUpAsync } from "src/store/thunks/userThunks/signUpAsync";
 import { signInAsync } from "src/store/thunks/userThunks/signInAsync";
 import { autoAuthAsync } from "src/store/thunks/userThunks/autoAuthAsync";
 import { activateAccountAsync } from "src/store/thunks/userThunks/activateAccountAsync";
+import { logOutAsync } from "src/store/thunks/userThunks/logOut";
 
 export const useAction = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,8 @@ export const useAction = () => {
       signUpAsync,
       signInAsync,
       autoAuthAsync,
-      activateAccountAsync
+      activateAccountAsync,
+      logOutAsync,
     },
     dispatch
   );

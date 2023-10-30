@@ -2,6 +2,7 @@ import ErrorPage from "src/client/pages/ErrorPage/ErrorPage";
 import FavFilmsPage from "src/client/pages/FavFilmsPage/FavFilmsPage";
 import FilmPage from "src/client/pages/FilmPage/FilmPage";
 import MainPage from "src/client/pages/MainPage/MainPage";
+import SettingsPage from "src/client/pages/SettingsPage/SettingsPage";
 import ActivateAccountPage from "src/client/pages/UserFormsPages/ActivateAccountPage";
 import SignInPage from "src/client/pages/UserFormsPages/SignInPage";
 import SignUpPage from "src/client/pages/UserFormsPages/SignUpPage";
@@ -56,6 +57,12 @@ export const clientRoutes: IClientRoutes[] = [
     path: "/sign-in",
     Component: SignInPage,
     isPrivate: false,
+  },
+  {
+    id: 8,
+    path: "/settings",
+    Component: SettingsPage,
+    isPrivate: true,
   },
   {
     id: 999,
