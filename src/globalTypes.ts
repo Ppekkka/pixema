@@ -1,15 +1,11 @@
 import { themeModes } from "src/styles/theme";
 
-export interface IUser {
-  username: string;
-}
-
 export interface IState {
   theme: {
     themeMode: themeModes;
   };
   user: {
-    username: string;
+    user: IUserData;
   };
   films: {
     filmsObject: IFilmsObject;
@@ -103,4 +99,9 @@ export interface IFilters {
   ratingTo: number;
 
   useFilters: boolean;
+}
+export interface IUserData {
+  username: string;
+  email: string;
+  password: string;
 }

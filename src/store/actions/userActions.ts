@@ -1,19 +1,23 @@
-import { IUser } from "src/globalTypes";
+import { IUserData } from "src/globalTypes";
 
 export enum userActionsEnum {
   SIGN_UP = "SIGN_UP",
-  LOG_IN = "LOG_IN",
-  LOG_OUT = "LOG_OUT",
+  SIGN_IN = "SIGN_IN",
+  SIGN_OUT = "SIGN_OUT",
+  RESET_PASSWORD = "RESET_PASSWORD",
 }
 
 export const userActions = {
-  signUp: (payload: IUser) => {
+  signUp: (payload: IUserData) => {
     return { type: userActionsEnum.SIGN_UP, payload };
   },
-  logIn: (payload: IUser) => {
-    return { type: userActionsEnum.LOG_IN, payload };
+  signIn: (payload: IUserData) => {
+    return { type: userActionsEnum.SIGN_IN, payload };
   },
-  logOut: () => {
-    return { type: userActionsEnum.LOG_OUT, payload: null };
+  signOut: () => {
+    return { type: userActionsEnum.SIGN_OUT, payload: null };
+  },
+  resetPassword: (payload: string) => {
+    return { type: userActionsEnum.RESET_PASSWORD, payload };
   },
 };

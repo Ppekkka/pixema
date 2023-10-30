@@ -23,9 +23,9 @@ export const favFilmsReducer = (
     }
     case favFilmsActionsEnum.REMOVE_FROM_FAVS: {
       const newfavFilmsArr: IFilm[] = [...state.favFilms];
-      newfavFilmsArr.filter((film) => film !== action.payload);
+      const filteredArr = newfavFilmsArr.filter((film) => film.imdbID !== action.payload.imdbID);
 
-      return { ...state, favFilms: newfavFilmsArr };
+      return { ...state, favFilms: filteredArr };
     }
     default:
       return state;

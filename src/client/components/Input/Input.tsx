@@ -5,7 +5,7 @@ interface IProps {
   inputType: HTMLInputTypeAttribute;
   placeholder: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  value: number | ''
+  value: number | string;
 }
 
 const Input = ({ inputType, placeholder, onChange, value }: IProps) => {

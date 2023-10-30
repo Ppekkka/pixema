@@ -3,6 +3,7 @@ import {
   Wrapper,
   SectionWrapper,
   SectionText,
+  SectionLink,
 } from "src/client/components/HeaderMenu/UserMenuContent/styles";
 
 interface IProps {
@@ -13,7 +14,7 @@ const UserMenuContent = ({ $isAuthorized }: IProps) => {
   return $isAuthorized ? (
     <Wrapper>
       <SectionWrapper $isAuthorized>
-        <SectionText>Edit profile</SectionText>
+        <SectionLink to="/settings">Edit profile</SectionLink>
       </SectionWrapper>
       <SectionWrapper $isAuthorized>
         <SectionText>Log Out</SectionText>
@@ -22,7 +23,7 @@ const UserMenuContent = ({ $isAuthorized }: IProps) => {
   ) : (
     <Wrapper>
       <SectionWrapper $isAuthorized>
-        <SectionText>Log In</SectionText>
+        <SectionLink to="/sign-in">Log In</SectionLink>
       </SectionWrapper>
     </Wrapper>
   );

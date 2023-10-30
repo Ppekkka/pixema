@@ -71,6 +71,7 @@ export const FavButton = styled.button`
   border-radius: 10px;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 
   @media (max-width: 768px) {
     width: clamp(208px, 1.2vw, 266px);

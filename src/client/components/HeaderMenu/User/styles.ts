@@ -35,6 +35,7 @@ export const IconInitials = styled.p`
   line-height: 24px;
   letter-spacing: 0.05em;
   text-align: left;
+  color: white;
 `;
 
 export const UserText = styled.p`

@@ -1,25 +1,29 @@
-import { IUser } from "src/globalTypes";
+import { IUserData } from "src/globalTypes";
 import { userActionsEnum } from "src/store/actions/userActions";
 
 const defaultUser = {
-  username: null,
+  user: {
+    username: "",
+    password: "",
+    email: "",
+  },
 };
 
 interface IAction {
   type: userActionsEnum;
-  payload: null | IUser;
+  payload: null | IUserData;
 }
 
 export const userReducer = (state = defaultUser, action: IAction) => {
   switch (action.type) {
     case userActionsEnum.SIGN_UP: {
-      return { ...state, username: action.payload };
+      return { ...state, user: action.payload };
     }
-    case userActionsEnum.LOG_IN: {
-      return { ...state, username: action.payload };
+    case userActionsEnum.SIGN_IN: {
+      return { ...state, user: action.payload };
     }
-    case userActionsEnum.LOG_OUT: {
-      return { ...state, username: null };
+    case userActionsEnum.SIGN_OUT: {
+      return { ...state, user: defaultUser };
     }
     default:
       return state;

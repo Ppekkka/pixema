@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectors } from "src/store/selectors/selctors";
 import { useParams, Navigate } from "react-router-dom";
@@ -38,12 +38,15 @@ const FilmPage = () => {
   const fullFilmInfo = useSelector(selectors.getFullFilm);
 
   const favFilms = useSelector(selectors.getFavFilms);
-  const isFav = isFilmFav(id!, favFilms);
+  const isFavDefault = isFilmFav(id!, favFilms);
+
+  const [isFav, setIsFav] = useState(isFavDefault);
 
   const { addToFavs, removeFromFavs } = useAction();
 
   const handlePressOnFavSvg = () => {
     isFav ? removeFromFavs(fullFilmInfo!) : addToFavs(fullFilmInfo!);
+    setIsFav(!isFav)
   };
 
   if (fullFilmInfo.Genre) {

@@ -5,13 +5,17 @@ import { filmsActions } from "src/store/actions/filmsActions";
 import { themeActions } from "src/store/actions/themeActions";
 import { userActions } from "src/store/actions/userActions";
 import { filterMenuActions } from "src/store/actions/filterMenuActions";
-import { setFilmsAsync } from "src/store/thunks/setFilmsAsync";
+import { setFilmsAsync } from "src/store/thunks/filmsThunks/setFilmsAsync";
 import { sectionsActions } from "src/store/actions/sectionsActions";
 import { filtersACtions } from "src/store/actions/filtersActions";
-import { setFilteredFilmsAsync } from "src/store/thunks/setFilteredFilmsAsync";
-import { setSearchedFilmsAsync } from "src/store/thunks/setSearchedFilmsAsync";
+import { setFilteredFilmsAsync } from "src/store/thunks/filmsThunks/setFilteredFilmsAsync";
+import { setSearchedFilmsAsync } from "src/store/thunks/filmsThunks/setSearchedFilmsAsync";
 import { fullFilmActions } from "src/store/actions/fullFilmActions";
-import { setFullFilmAsync } from "src/store/thunks/setFullFilmAsync";
+import { setFullFilmAsync } from "src/store/thunks/filmsThunks/setFullFilmAsync";
+import { signUpAsync } from "src/store/thunks/userThunks/signUpAsync";
+import { signInAsync } from "src/store/thunks/userThunks/signInAsync";
+import { autoAuthAsync } from "src/store/thunks/userThunks/autoAuthAsync";
+import { activateAccountAsync } from "src/store/thunks/userThunks/activateAccountAsync";
 
 export const useAction = () => {
   const dispatch = useDispatch();
@@ -30,6 +34,10 @@ export const useAction = () => {
       setFilteredFilmsAsync,
       setSearchedFilmsAsync,
       setFullFilmAsync,
+      signUpAsync,
+      signInAsync,
+      autoAuthAsync,
+      activateAccountAsync
     },
     dispatch
   );

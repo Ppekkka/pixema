@@ -1,5 +1,5 @@
 export const getColorOfFavSvg = (isFav: boolean) => {
-  return isFav ? "white" : "#80858B";
+  return isFav ? "#7b61ff" : "#80858B";
 };
 
 export const getStringFromArr = (Genre: string) => {

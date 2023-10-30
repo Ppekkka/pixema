@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 interface IProps {
   $selected: boolean;
@@ -27,4 +28,17 @@ export const SectionTitle = styled.p<IProps>`
   font-weight: 600;
   line-height: 24px;
   text-align: left;
+  text-decoration: none;
+`;
+
+export const SectionWrapperLink = styled(Link)<IProps>`
+  display: flex;
+  margin-bottom: 40px;
+  cursor: pointer;
+
+  &:last-child {
+    margin: 0;
+  }
+
+  text-decoration: none;
 `;

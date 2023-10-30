@@ -29,7 +29,7 @@ const Card = ({ Poster, Title, imdbRating, imdbID }: ICard) => {
   const goToTheFilm = () => {
     setFullFilmAsync(imdbID);
 
-    setTimeout(() => navigate("/film/${imdbID}"), 500);
+    setTimeout(() => navigate(`/film/${imdbID}`), 500);
   };
 
   return (

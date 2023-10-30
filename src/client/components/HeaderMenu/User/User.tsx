@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   IconWrapper,
   Wrapper,
@@ -12,7 +12,7 @@ import {
 } from "src/client/components/HeaderMenu/User/helpers";
 import { useSelector } from "react-redux";
 import { selectors } from "src/store/selectors/selctors";
-
+import { useAction } from "src/store/hooks/useAction";
 
 const User = () => {
   const [menuIsOpened, setMenuIsOpened] = useState(false);

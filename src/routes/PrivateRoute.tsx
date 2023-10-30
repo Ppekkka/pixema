@@ -6,7 +6,7 @@ import { selectors } from 'src/store/selectors/selctors';
 const PrivateRoute = ({children}: any) => {
     const { username } = useSelector(selectors.getUserInfo);
 
-    return username ? children : <Navigate to='/'/>
+    return username ? children : <Navigate to='/sign-up'/>
 };
 
 export default PrivateRoute;

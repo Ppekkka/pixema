@@ -7,6 +7,6 @@ export const selectors = {
   getFilters: (state: IState) => state.filters,
   getSection: (state: IState) => state.sections.section,
   getThemeMode: (state: IState) => state.theme.themeMode,
-  getUserInfo: (state: IState) => state.user,
+  getUserInfo: (state: IState) => state.user.user,
   getFullFilm: (state: IState) => state.film.film
 };

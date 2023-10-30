@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 interface IProps {
   $isAuthorized: boolean;
@@ -37,6 +38,22 @@ export const SectionText = styled.p`
   text-align: left;
   color: white;
   cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: #7b61ff;
+  }
+`;
+
+export const SectionLink = styled(Link)`
+  font-family: "Exo 2", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     color: #7b61ff;
