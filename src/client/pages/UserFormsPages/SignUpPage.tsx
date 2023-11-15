@@ -4,6 +4,7 @@ import Input from "src/client/components/Input/Input";
 import Label from "src/client/components/Label/Label";
 import {
   Wrapper,
+  FormWrapper,
   Title,
   TextField,
   PrimaryButtonWrapper,
@@ -46,59 +47,61 @@ const SignUpPage = () => {
 
   return (
     <Wrapper>
-      <Title>Sign Up</Title>
-      <TextField>
-        <Label label="Name">
-          <Input
-            inputType="name"
-            placeholder="Your name"
-            onChange={(event) => handleSetUserData(event, "username")}
-            value={userData.username}
-          ></Input>
-        </Label>
-      </TextField>
+      <FormWrapper>
+        <Title>Sign Up</Title>
+        <TextField>
+          <Label label="Name">
+            <Input
+              inputType="name"
+              placeholder="Your name"
+              onChange={(event) => handleSetUserData(event, "username")}
+              value={userData.username}
+            ></Input>
+          </Label>
+        </TextField>
 
-      <TextField>
-        <Label label="Email">
-          <Input
-            inputType="email"
-            placeholder="Your email"
-            onChange={(event) => handleSetUserData(event, "email")}
-            value={userData.email}
-          ></Input>
-        </Label>
-      </TextField>
+        <TextField>
+          <Label label="Email">
+            <Input
+              inputType="email"
+              placeholder="Your email"
+              onChange={(event) => handleSetUserData(event, "email")}
+              value={userData.email}
+            ></Input>
+          </Label>
+        </TextField>
 
-      <TextField>
-        <Label label="Password">
-          <Input
-            inputType="password"
-            placeholder="Your password"
-            onChange={(event) => handleSetUserData(event, "password")}
-            value={userData.password}
-          ></Input>
-        </Label>
-      </TextField>
+        <TextField>
+          <Label label="Password">
+            <Input
+              inputType="password"
+              placeholder="Your password"
+              onChange={(event) => handleSetUserData(event, "password")}
+              value={userData.password}
+            ></Input>
+          </Label>
+        </TextField>
 
-      <TextField>
-        <Label label="Confirm password">
-          <Input
-            inputType="password"
-            placeholder="Confirm password"
-            onChange={(event) => handleSetUserData(event, "confirmPassword")}
-            value={userData.confirmPassword}
-          ></Input>
-        </Label>
-      </TextField>
+        <TextField>
+          <Label label="Confirm password">
+            <Input
+              inputType="password"
+              placeholder="Confirm password"
+              onChange={(event) => handleSetUserData(event, "confirmPassword")}
+              value={userData.confirmPassword}
+            ></Input>
+          </Label>
+        </TextField>
 
-      <PrimaryButtonWrapper to='/activate-account'>
-        <PrimaryButton onClick={signUp}>Sign Up</PrimaryButton>
-      </PrimaryButtonWrapper>
+        <PrimaryButtonWrapper to="/activate-account">
+          <PrimaryButton onClick={signUp}>Sign Up</PrimaryButton>
+        </PrimaryButtonWrapper>
 
-      <AlreadyHaveTextWrapper>
-        <AlreadyHaveText>Already have an account? </AlreadyHaveText>
-        <TextLink to="/sign-in"> Sign in</TextLink>
-      </AlreadyHaveTextWrapper>
+        <AlreadyHaveTextWrapper>
+          <AlreadyHaveText>Already have an account? </AlreadyHaveText>
+          <TextLink to="/sign-in"> Sign in</TextLink>
+        </AlreadyHaveTextWrapper>
+      </FormWrapper>
     </Wrapper>
   );
 };

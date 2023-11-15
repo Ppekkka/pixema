@@ -31,6 +31,7 @@ import ArrowSvg from "src/client/components/Svg/ArrowSvg";
 import BookmarkSvg from "src/client/components/Svg/BookmarkSvg";
 import IMDBRatingSvg from "src/client/components/Svg/IMDBRatingSvg";
 import { isFilmFav } from "src/client/helpers";
+import { sectionsEnum } from "src/globalTypes";
 
 const FilmPage = () => {
   const { id } = useParams();
@@ -42,11 +43,15 @@ const FilmPage = () => {
 
   const [isFav, setIsFav] = useState(isFavDefault);
 
-  const { addToFavs, removeFromFavs } = useAction();
+  const { addToFavs, removeFromFavs, changeSection } = useAction();
 
   const handlePressOnFavSvg = () => {
     isFav ? removeFromFavs(fullFilmInfo!) : addToFavs(fullFilmInfo!);
-    setIsFav(!isFav)
+    setIsFav(!isFav);
+  };
+
+  const returnToMain = () => {
+    changeSection(sectionsEnum.HOME);
   };
 
   if (fullFilmInfo.Genre) {
@@ -54,7 +59,7 @@ const FilmPage = () => {
 
     return (
       <Wrapper>
-        <ReturnArrow to="/main">
+        <ReturnArrow to="/main" onClick={returnToMain}>
           <ArrowSvg />
         </ReturnArrow>
 

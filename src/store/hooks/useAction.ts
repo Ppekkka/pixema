@@ -14,9 +14,9 @@ import { fullFilmActions } from "src/store/actions/fullFilmActions";
 import { setFullFilmAsync } from "src/store/thunks/filmsThunks/setFullFilmAsync";
 import { signUpAsync } from "src/store/thunks/userThunks/signUpAsync";
 import { signInAsync } from "src/store/thunks/userThunks/signInAsync";
-import { autoAuthAsync } from "src/store/thunks/userThunks/autoAuthAsync";
 import { activateAccountAsync } from "src/store/thunks/userThunks/activateAccountAsync";
 import { logOutAsync } from "src/store/thunks/userThunks/logOut";
+import { autoAuthAsync } from "src/store/thunks/userThunks/autoAuthAsync";
 
 export const useAction = () => {
   const dispatch = useDispatch();
@@ -37,9 +37,9 @@ export const useAction = () => {
       setFullFilmAsync,
       signUpAsync,
       signInAsync,
-      autoAuthAsync,
       activateAccountAsync,
       logOutAsync,
+      autoAuthAsync
     },
     dispatch
   );

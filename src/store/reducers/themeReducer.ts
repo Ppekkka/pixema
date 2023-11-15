@@ -1,8 +1,12 @@
 import { themeActionsEnum } from "src/store/actions/themeActions";
 import { themeModes } from "src/styles/theme";
 
+const defaultThemeMode = localStorage.getItem("theme");
+
 const defaultState = {
-  themeMode: themeModes.LIGHT_MODE,
+  themeMode: defaultThemeMode
+    ? JSON.parse(defaultThemeMode)
+    : themeModes.LIGHT_MODE,
 };
 
 interface IThemeAction {
@@ -12,8 +16,10 @@ interface IThemeAction {
 
 export const themeReducer = (state = defaultState, action: IThemeAction) => {
   switch (action.type) {
-    case themeActionsEnum.CHANGE_THEME:
+    case themeActionsEnum.CHANGE_THEME: {
+      localStorage.setItem("theme", JSON.stringify(action.payload));
       return { ...state, themeMode: action.payload };
+    }
     default:
       return state;
   }

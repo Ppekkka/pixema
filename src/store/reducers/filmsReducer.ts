@@ -1,4 +1,3 @@
-import { IState } from "src/globalTypes";
 import {
   ISetFilmsPayload,
   filmsActionsEnum,

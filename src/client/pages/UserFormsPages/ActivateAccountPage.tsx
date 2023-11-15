@@ -1,20 +1,18 @@
 import React, { useEffect } from "react";
 import {
   Wrapper,
+  FormWrapper,
   ActivationText,
   PrimaryButtonWrapper,
 } from "src/client/pages/UserFormsPages/styles";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectors } from "src/store/selectors/selctors";
-import { Link } from "react-router-dom";
 import PrimaryButton from "src/client/components/Buttons/PrimaryButton/PrimaryButton";
+import { activateAccountAsync } from "src/store/thunks/userThunks/activateAccountAsync";
+import { sectionsEnum } from "src/globalTypes";
 import { useAction } from "src/store/hooks/useAction";
 
 const ActivateAccountPage = () => {
   const { uid, token } = useParams();
-
-  const { activateAccountAsync } = useAction();
 
   useEffect(() => {
     if (uid && token) {
@@ -22,18 +20,24 @@ const ActivateAccountPage = () => {
     }
   }, [uid, token]);
 
+  const { changeSection } = useAction();
+
+  const returnToMain = () => {
+    changeSection(sectionsEnum.HOME);
+  };
+
   return (
     <Wrapper>
-      <ActivationText>
-        {uid && token ? "Success!" : "Please, check out your email!"}
-      </ActivationText>
-      {uid && token && (
-        <Link to="/main">
-          <PrimaryButtonWrapper to="/main">
+      <FormWrapper>
+        <ActivationText>
+          {uid && token ? "Success!" : "Please, check out your email!"}
+        </ActivationText>
+        {uid && token && (
+          <PrimaryButtonWrapper to="/main" onClick={returnToMain}>
             <PrimaryButton>Go to home!</PrimaryButton>
           </PrimaryButtonWrapper>
-        </Link>
-      )}
+        )}
+      </FormWrapper>
     </Wrapper>
   );
 };

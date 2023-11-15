@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAction } from "src/store/hooks/useAction";
 import {
   Wrapper,
+  FormWrapper,
   Title,
   TextField,
   PrimaryButtonWrapper,
@@ -42,38 +43,40 @@ const SignInPage = () => {
 
   return (
     <Wrapper>
-      <Title>Sign In</Title>
+      <FormWrapper>
+        <Title>Sign In</Title>
 
-      <TextField>
-        <Label label="Email">
-          <Input
-            inputType="email"
-            placeholder="Your email"
-            onChange={(event) => handleSetUserData(event, "email")}
-            value={userData.email}
-          ></Input>
-        </Label>
-      </TextField>
+        <TextField>
+          <Label label="Email">
+            <Input
+              inputType="email"
+              placeholder="Your email"
+              onChange={(event) => handleSetUserData(event, "email")}
+              value={userData.email}
+            ></Input>
+          </Label>
+        </TextField>
 
-      <TextField>
-        <Label label="Password">
-          <Input
-            inputType="password"
-            placeholder="Your password"
-            onChange={(event) => handleSetUserData(event, "password")}
-            value={userData.password}
-          ></Input>
-        </Label>
-      </TextField>
+        <TextField>
+          <Label label="Password">
+            <Input
+              inputType="password"
+              placeholder="Your password"
+              onChange={(event) => handleSetUserData(event, "password")}
+              value={userData.password}
+            ></Input>
+          </Label>
+        </TextField>
 
-      <PrimaryButtonWrapper to="/main">
-        <PrimaryButton onClick={signIn}>Sign In</PrimaryButton>
-      </PrimaryButtonWrapper>
+        <PrimaryButtonWrapper to="/main">
+          <PrimaryButton onClick={signIn}>Sign In</PrimaryButton>
+        </PrimaryButtonWrapper>
 
-      <AlreadyHaveTextWrapper>
-        <AlreadyHaveText>Already have an account? </AlreadyHaveText>
-        <TextLink to="/sign-up"> Sign up</TextLink>
-      </AlreadyHaveTextWrapper>
+        <AlreadyHaveTextWrapper>
+          <AlreadyHaveText>Already have an account? </AlreadyHaveText>
+          <TextLink to="/sign-up"> Sign up</TextLink>
+        </AlreadyHaveTextWrapper>
+      </FormWrapper>
     </Wrapper>
   );
 };
