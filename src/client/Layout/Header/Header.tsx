@@ -25,7 +25,7 @@ const Header = () => {
         <LogoWrapper>
           <PixemaSvg />
         </LogoWrapper>
-        {(isMain || link === '/') && (
+        {(isMain || link === '/' || link ==='/trends' || link === '/favourites') && (
           <RightContentWrapper>
             {<Search />}
             <HeaderMenu />
@@ -40,7 +40,7 @@ const Header = () => {
           <LogoWrapper>
             <PixemaSvg />
           </LogoWrapper>
-          {(isMain || link.includes('favourites') || link.includes('settings') || link === '/') && <HeaderMenu />}
+          <HeaderMenu />
         </FlexWrapper>
 
         {isMain && <Search />}

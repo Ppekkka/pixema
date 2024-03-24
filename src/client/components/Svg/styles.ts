@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   width: max-content;
@@ -15,5 +16,9 @@ export const StyledStrictSvg = styled.svg`
 `;
 
 export const StyledPixemaSvg = styled.svg`
+  width: clamp(152px, 1.2vw, 100%);
+`;
+
+export const StyledPixemaWrapper = styled(Link)`
   width: clamp(152px, 1.2vw, 100%);
 `;

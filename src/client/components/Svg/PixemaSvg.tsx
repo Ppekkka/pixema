@@ -1,14 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Wrapper, StyledPixemaSvg } from "src/client/components/Svg/styles";
+import { StyledPixemaWrapper, StyledPixemaSvg } from "src/client/components/Svg/styles";
 import { themeModes } from "src/styles/theme";
+import { sectionsEnum } from "src/globalTypes";
 import { selectors } from "src/store/selectors/selctors";
+import { useAction } from "src/store/hooks/useAction";
 
 const PixemaSvg = () => {
+  const { changeSection } = useAction();
   const themeMode = useSelector(selectors.getThemeMode);
 
   return (
-    <Wrapper>
+    <StyledPixemaWrapper to="/main" onClick={() => changeSection(sectionsEnum.HOME)}>
       {themeMode === themeModes.LIGHT_MODE ? (
         <StyledPixemaSvg
           width="158"
@@ -76,7 +79,7 @@ const PixemaSvg = () => {
           />
         </StyledPixemaSvg>
       )}
-    </Wrapper>
+    </StyledPixemaWrapper>
   );
 };
 

@@ -52,6 +52,7 @@ export const AlreadyHaveText = styled.p`
   letter-spacing: 0em;
   text-align: left;
   color: #80858b;
+  padding-right: 2px;
 `;
 
 export const TextLink = styled(Link)`

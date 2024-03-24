@@ -35,6 +35,8 @@ const MainMenuContent = () => {
     changeSection(selectedSection);
     if (selectedSection === sectionsEnum.TRENDS) {
       setFilmsAsync(true, true, filmsPerList, 1);
+    } else if(selectedSection === sectionsEnum.HOME) {
+      setFilmsAsync(true, false, filmsPerList, 1);
     }
   }, [selectedSection]);
 
@@ -61,7 +63,7 @@ const MainMenuContent = () => {
         </SectionTitle>
       </SectionWrapper>
       <SectionWrapper
-        onClick={() => goToAnotherSection(sectionsEnum.TRENDS, "main")}
+        onClick={() => goToAnotherSection(sectionsEnum.TRENDS, "trends")}
       >
         <FireSvg fill={GetColor(sectionsEnum.TRENDS, selectedSection)} />
         <SectionTitle $selected={sectionsEnum.TRENDS === selectedSection}>

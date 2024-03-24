@@ -19,17 +19,16 @@ export const Wrapper = styled.div`
 
 export const Line = styled.span<IProps>`
   display: flex;
-  height: 2px;
   width: 16px;
   border-radius: 6px;
   background-color: white;
   transition: 0.3s;
   position: relative;
+  padding: 1.25px 0;
 
   &::before,
   &::after {
     content: "";
-    height: 2.5px;
     width: 16px;
     display: flex;
     background-color: white;
@@ -37,6 +36,7 @@ export const Line = styled.span<IProps>`
     transition: 0.3s;
     position: absolute;
     border-radius: 6px;
+    padding: 1.25px 0;
   }
 
   &::before {
