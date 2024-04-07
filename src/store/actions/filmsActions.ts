@@ -1,4 +1,4 @@
-import { ISearchFilms } from "src/globalTypes";
+import { ISearchFilms } from "src/types/globalTypes";
 
 export enum filmsActionsEnum {
   SET_FILMS = "SET_FILMS",

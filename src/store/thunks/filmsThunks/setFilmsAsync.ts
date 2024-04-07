@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 import { filmsApi } from "src/client/api/filmsApi";
 import { filmsActions } from "src/store/actions/filmsActions";
-import { IFilm } from "src/globalTypes";
+import { IFilm } from "src/types/globalTypes";
 
 interface IRating {
   rating: number;

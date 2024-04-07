@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const StyledFooter = styled.footer`
-background-color: ${props => props.theme.palette.primary.background}
-`
-
 export const Wrapper = styled.div`
   padding: 40px 3% 64px;
   display: flex;

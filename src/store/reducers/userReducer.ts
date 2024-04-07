@@ -1,4 +1,4 @@
-import { IUserData } from "src/globalTypes";
+import { IUserData } from "src/types/globalTypes";
 import { userActionsEnum } from "src/store/actions/userActions";
 
 const defaultUser = {

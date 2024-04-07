@@ -1,4 +1,4 @@
-import { sectionsEnum } from "src/globalTypes";
+import { sectionsEnum } from "src/types/globalTypes";
 import { sectionsActionsEnum } from "src/store/actions/sectionsActions";
 
 const defaultState = {

@@ -18,7 +18,7 @@ import CrossSvg from "src/client/components/Svg/CrossSvg";
 import Tabs from "src/client/components/Tabs/Tabs";
 import { useAction } from "src/store/hooks/useAction";
 import { useSelector } from "react-redux";
-import { sectionsEnum } from "src/globalTypes";
+import { sectionsEnum } from "src/types/globalTypes";
 import { getFilmsPerList } from "src/client/helpers";
 import { selectors } from "src/store/selectors/selctors";
 

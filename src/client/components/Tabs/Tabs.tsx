@@ -3,7 +3,7 @@ import {
   StyledTab,
   StyledTabsWrapper,
 } from "src/client/components/Tabs/styles";
-import { sortByEnum } from "src/globalTypes";
+import { sortByEnum } from "src/types/globalTypes";
 import { useAction } from "src/store/hooks/useAction";
 
 interface TabsProps {

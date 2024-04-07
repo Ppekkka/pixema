@@ -1,4 +1,4 @@
-import { IFilm } from "src/globalTypes";
+import { IFilm } from "src/types/globalTypes";
 import { favFilmsActionsEnum } from "src/store/actions/favFilmsActions";
 
 const defaultState = {

@@ -1,4 +1,17 @@
 import styled from "styled-components";
+import background from "src/assets/background.jpg";
+
+export const Wrapper = styled.button`
+  width: 100%;
+  height: 100%;
+  background-color: ${(props) => props.theme.palette.primary.background};
+`;
+
+export const SignWrapper = styled.button`
+  width: 100%;
+  height: 100%;
+  background: url(${background});
+`;
 
 export const PopupIsOpenedBG = styled.button`
   width: 100%;

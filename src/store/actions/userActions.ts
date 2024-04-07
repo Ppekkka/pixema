@@ -1,4 +1,4 @@
-import { IUserData } from "src/globalTypes";
+import { IUserData } from "src/types/globalTypes";
 
 export enum userActionsEnum {
   SIGN_UP = "SIGN_UP",

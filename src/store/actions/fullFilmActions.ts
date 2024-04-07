@@ -1,4 +1,4 @@
-import { IFilm } from "src/globalTypes";
+import { IFilm } from "src/types/globalTypes";
 
 export enum fullFilmActionsEnum {
   ADD_FULL_FILM = "ADD_FULL_FILM",

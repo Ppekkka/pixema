@@ -7,6 +7,12 @@ export const StyledHeader = styled.header`
   z-index: 500;
 `;
 
+export const SignHeader = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 500;
+`;
+
 export const LogoWrapper = styled.div`
   display: flex;
   height: 100%;

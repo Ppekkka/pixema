@@ -1,13 +1,13 @@
 import React from "react";
-import { StyledFooter, Wrapper, FooterText } from "src/client/Layout/Footer/styles";
+import { Wrapper, FooterText } from "src/client/Layout/Footer/styles";
 
 const Footer = () => {
   return (
-    <StyledFooter>
+    <footer>
       <Wrapper>
         <FooterText>© All Rights Reserved</FooterText>
       </Wrapper>
-    </StyledFooter>
+    </footer>
   );
 };
 

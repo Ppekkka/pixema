@@ -1,5 +1,5 @@
 import { userUrl } from "src/client/utils/https";
-import { IUserData } from "src/globalTypes";
+import { IUserData } from "src/types/globalTypes";
 
 export interface IResetPasswordConfirmData {
   uid: string;

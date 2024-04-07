@@ -1,4 +1,4 @@
-import { IState } from "src/globalTypes";
+import { IState } from "src/types/globalTypes";
 
 export const selectors = {
   getFavFilms: (state: IState) => state.favFilms.favFilms,

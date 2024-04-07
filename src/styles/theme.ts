@@ -9,7 +9,7 @@ const palettes: Record<themeModes, any> = {
       background: "#FFFFFF",
       text: "#242426",
       grey: "#AFB2B6",
-      darkGrey: "#535a5e",
+      darkGrey: "#6c7174",
     },
   },
   [themeModes.DARK_MODE]: {

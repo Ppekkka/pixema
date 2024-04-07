@@ -1,4 +1,4 @@
-import { IFilm } from "src/globalTypes";
+import { IFilm } from "src/types/globalTypes";
 
 export const getFilmsArr = (arr: IFilm[], size: number) => {
   let result = [];

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import {
-  Wrapper,
   FormWrapper,
   ActivationText,
   PrimaryButtonWrapper,
@@ -8,7 +7,7 @@ import {
 import { useParams } from "react-router-dom";
 import PrimaryButton from "src/client/components/Buttons/PrimaryButton/PrimaryButton";
 import { activateAccountAsync } from "src/store/thunks/userThunks/activateAccountAsync";
-import { sectionsEnum } from "src/globalTypes";
+import { sectionsEnum } from "src/types/globalTypes";
 import { useAction } from "src/store/hooks/useAction";
 
 const ActivateAccountPage = () => {
@@ -27,7 +26,7 @@ const ActivateAccountPage = () => {
   };
 
   return (
-    <Wrapper>
+    <div>
       <FormWrapper>
         <ActivationText>
           {uid && token ? "Success!" : "Please, check out your email!"}
@@ -38,7 +37,7 @@ const ActivateAccountPage = () => {
           </PrimaryButtonWrapper>
         )}
       </FormWrapper>
-    </Wrapper>
+    </div>
   );
 };
 

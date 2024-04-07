@@ -11,7 +11,7 @@ import {
 } from "src/client/components/Card/styles";
 import BookmarkSvg from "src/client/components/Svg/BookmarkSvg";
 import FireSvg from "src/client/components/Svg/FireSvg";
-import { ICard } from "src/globalTypes";
+import { ICard } from "src/types/globalTypes";
 import { useSelector } from "react-redux";
 import { selectors } from "src/store/selectors/selctors";
 import { isFilmFav } from "src/client/helpers";

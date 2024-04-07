@@ -31,7 +31,7 @@ import ArrowSvg from "src/client/components/Svg/ArrowSvg";
 import BookmarkSvg from "src/client/components/Svg/BookmarkSvg";
 import IMDBRatingSvg from "src/client/components/Svg/IMDBRatingSvg";
 import { isFilmFav } from "src/client/helpers";
-import { sectionsEnum } from "src/globalTypes";
+import { sectionsEnum } from "src/types/globalTypes";
 
 const FilmPage = () => {
   const { id } = useParams();

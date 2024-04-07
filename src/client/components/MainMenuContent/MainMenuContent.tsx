@@ -11,7 +11,7 @@ import HomeSvg from "src/client/components/Svg/HomeSvg";
 import SettingsSvg from "src/client/components/Svg/SettingsSvg";
 import { useAction } from "src/store/hooks/useAction";
 import { useSelector } from "react-redux";
-import { sectionsEnum } from "src/globalTypes";
+import { sectionsEnum } from "src/types/globalTypes";
 import { getFilmsPerList } from "src/client/helpers";
 import { selectors } from "src/store/selectors/selctors";
 import { useNavigate } from "react-router-dom";

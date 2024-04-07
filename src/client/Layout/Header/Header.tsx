@@ -1,6 +1,7 @@
 import React from "react";
 import {
   StyledHeader,
+  SignHeader,
   LogoWrapper,
   Wrapper,
   RightContentWrapper,
@@ -9,32 +10,33 @@ import {
 import HeaderMenu from "src/client/components/HeaderMenu/HeaderMenu";
 import Search from "src/client/components/Search/Search";
 import PixemaSvg from "src/client/components/Svg/PixemaSvg";
-import { useLocation } from 'react-router-dom';
+import { useIsSign } from "src/store/hooks/useIsSign";
 
 
 const Header = () => {
   const width = window.innerWidth;
   const breakpoint = 768;
 
-  let link = useLocation().pathname;
-  const isMain = link.includes('main')
+  const isSign = useIsSign()
+
+  const Header = isSign ? SignHeader : StyledHeader;
 
   return width >= breakpoint ? (
-    <StyledHeader>
+    <Header>
       <Wrapper>
         <LogoWrapper>
           <PixemaSvg />
         </LogoWrapper>
-        {(isMain || link === '/' || link ==='/trends' || link === '/favourites') && (
+        { !isSign && (
           <RightContentWrapper>
             {<Search />}
             <HeaderMenu />
           </RightContentWrapper>
         )}
       </Wrapper>
-    </StyledHeader>
+    </Header>
   ) : (
-    <StyledHeader>
+    <Header>
       <Wrapper>
         <FlexWrapper>
           <LogoWrapper>
@@ -43,9 +45,9 @@ const Header = () => {
           <HeaderMenu />
         </FlexWrapper>
 
-        {isMain && <Search />}
+        {!isSign && <Search />}
       </Wrapper>
-    </StyledHeader>
+    </Header>
   );
 };
 

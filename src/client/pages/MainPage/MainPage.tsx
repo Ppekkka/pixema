@@ -12,7 +12,7 @@ import {
 import Card from "src/client/components/Card/Card";
 import MainMenuContent from "src/client/components/MainMenuContent/MainMenuContent";
 import { getPage } from "src/client/pages/MainPage/helpers";
-import { sectionsEnum } from "src/globalTypes";
+import { sectionsEnum } from "src/types/globalTypes";
 import { getFilmsPerList } from "src/client/helpers";
 import { selectors } from "src/store/selectors/selctors";
 

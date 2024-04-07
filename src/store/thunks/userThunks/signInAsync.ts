@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { IUserData } from "src/globalTypes";
+import { IUserData } from "src/types/globalTypes";
 import { userActions } from "src/store/actions/userActions";
 import { getTokens, signIn } from "src/store/thunks/userThunks/helpers";
 

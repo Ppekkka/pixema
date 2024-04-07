@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 import { filmsApi } from "src/client/api/filmsApi";
 import { filmsActions } from "src/store/actions/filmsActions";
-import { IFilters, ISearchFilms, sortByEnum } from "src/globalTypes";
+import { IFilters, ISearchFilms, sortByEnum } from "src/types/globalTypes";
 import { getRatingForFilters } from "src/store/thunks/filmsThunks/helpers";
 import { filtersACtions } from "src/store/actions/filtersActions";
 

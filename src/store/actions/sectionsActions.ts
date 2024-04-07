@@ -1,4 +1,4 @@
-import { sectionsEnum } from "src/globalTypes";
+import { sectionsEnum } from "src/types/globalTypes";
 
 export enum sectionsActionsEnum {
   CHANGE_SECTION = "CHANGE_SECTION",

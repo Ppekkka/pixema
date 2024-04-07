@@ -1,4 +1,4 @@
-import { IFilters } from "src/globalTypes";
+import { IFilters } from "src/types/globalTypes";
 
 export enum filtersACtionsEnum {
   CHANGE_FILTERS = "CHANGE_FILTERS",

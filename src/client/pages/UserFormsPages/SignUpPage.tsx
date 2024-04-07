@@ -3,7 +3,6 @@ import PrimaryButton from "src/client/components/Buttons/PrimaryButton/PrimaryBu
 import Input from "src/client/components/Input/Input";
 import Label from "src/client/components/Label/Label";
 import {
-  Wrapper,
   FormWrapper,
   Title,
   TextField,
@@ -46,7 +45,7 @@ const SignUpPage = () => {
   };
 
   return (
-    <Wrapper>
+    <div>
       <FormWrapper>
         <Title>Sign Up</Title>
         <TextField>
@@ -102,7 +101,7 @@ const SignUpPage = () => {
           <TextLink to="/sign-in"> Sign in</TextLink>
         </AlreadyHaveTextWrapper>
       </FormWrapper>
-    </Wrapper>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 import { userApi } from "src/client/api/userApi";
-import { IUserData } from "src/globalTypes";
+import { IUserData } from "src/types/globalTypes";
 import { userActions } from "src/store/actions/userActions";
 
 const signUp = async (userData: IUserData) => {

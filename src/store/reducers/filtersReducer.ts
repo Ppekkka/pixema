@@ -1,4 +1,4 @@
-import { IFilters, sortByEnum } from "src/globalTypes";
+import { IFilters, sortByEnum } from "src/types/globalTypes";
 import { filtersACtionsEnum } from "src/store/actions/filtersActions";
 
 const defaultState = {

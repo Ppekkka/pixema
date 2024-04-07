@@ -2,17 +2,20 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { StyledPixemaWrapper, StyledPixemaSvg } from "src/client/components/Svg/styles";
 import { themeModes } from "src/styles/theme";
-import { sectionsEnum } from "src/globalTypes";
+import { sectionsEnum } from "src/types/globalTypes";
 import { selectors } from "src/store/selectors/selctors";
 import { useAction } from "src/store/hooks/useAction";
+import { useIsSign } from "src/store/hooks/useIsSign";
 
 const PixemaSvg = () => {
   const { changeSection } = useAction();
   const themeMode = useSelector(selectors.getThemeMode);
 
+  const isSign = useIsSign()
+
   return (
     <StyledPixemaWrapper to="/main" onClick={() => changeSection(sectionsEnum.HOME)}>
-      {themeMode === themeModes.LIGHT_MODE ? (
+      {(themeMode === themeModes.LIGHT_MODE) && !isSign ? (
         <StyledPixemaSvg
           width="158"
           height="40"

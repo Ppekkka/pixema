@@ -1,4 +1,4 @@
-import { IFilm } from "src/globalTypes";
+import { IFilm } from "src/types/globalTypes";
 
 export enum favFilmsActionsEnum {
   ADD_TO_FAVS = "ADD_TO_FAVS",

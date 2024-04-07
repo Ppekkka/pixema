@@ -1,4 +1,4 @@
-import { ISearchFilm } from "src/globalTypes";
+import { ISearchFilm } from "src/types/globalTypes";
 
 export const getFilmsPerList = (width: number) => {
     if (

@@ -1,4 +1,4 @@
-import { IFilmsObject, ISearchFilm } from "src/globalTypes";
+import { IFilmsObject, ISearchFilm } from "src/types/globalTypes";
 
 export const getFilmsObject = (
   filmsArr: ISearchFilm[],

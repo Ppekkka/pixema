@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useAction } from "src/store/hooks/useAction";
 import {
-  Wrapper,
   FormWrapper,
   Title,
   TextField,
@@ -42,7 +41,7 @@ const SignInPage = () => {
   };
 
   return (
-    <Wrapper>
+    <div>
       <FormWrapper>
         <Title>Sign In</Title>
 
@@ -77,7 +76,7 @@ const SignInPage = () => {
           <TextLink to="/sign-up"> Sign up</TextLink>
         </AlreadyHaveTextWrapper>
       </FormWrapper>
-    </Wrapper>
+    </div>
   );
 };
 

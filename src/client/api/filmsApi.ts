@@ -1,5 +1,5 @@
 import { filmsUrl, mockRatingUrl } from "src/client/utils/https";
-import { IFilm } from "src/globalTypes";
+import { IFilm } from "src/types/globalTypes";
 
 export const filmsApi = {
   getfilms: (page: number = 1, year?: number) =>
