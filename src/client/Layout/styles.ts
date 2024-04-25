@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import background from "src/assets/background.jpg";
 
-export const Wrapper = styled.button`
+export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${(props) => props.theme.palette.primary.background};

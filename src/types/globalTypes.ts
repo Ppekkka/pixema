@@ -16,7 +16,7 @@ export interface IState {
     section: sectionsEnum;
   };
   favFilms: {
-    favFilms: IFilm[];
+    favFilms: ISearchFilm[];
   };
   filterMenu: {
     filterMenuIsOpened: boolean;

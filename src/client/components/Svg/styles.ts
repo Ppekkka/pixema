@@ -9,16 +9,20 @@ export const Wrapper = styled.div`
 
 export const StyledFillSvg = styled.svg`
   fill: ${(props) => props.theme.palette.primary.text};
+  cursor: pointer;
 `;
 
 export const StyledStrictSvg = styled.svg`
   stroke: ${(props) => props.theme.palette.primary.text};
+  cursor: pointer;
 `;
 
 export const StyledPixemaSvg = styled.svg`
   width: clamp(152px, 1.2vw, 100%);
+  cursor: pointer;
 `;
 
 export const StyledPixemaWrapper = styled(Link)`
   width: clamp(152px, 1.2vw, 100%);
+  cursor: pointer;
 `;

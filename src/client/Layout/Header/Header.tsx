@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyledHeader,
   SignHeader,
@@ -14,11 +14,18 @@ import { useIsSign } from "src/store/hooks/useIsSign";
 
 
 const Header = () => {
-  const width = window.innerWidth;
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const handleSetWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleSetWidth);
+  }, []);
+
   const breakpoint = 768;
-
   const isSign = useIsSign()
-
   const Header = isSign ? SignHeader : StyledHeader;
 
   return width >= breakpoint ? (

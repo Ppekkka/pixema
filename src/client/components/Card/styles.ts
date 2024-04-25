@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
 
 export const ImageWrapper = styled.div`
   width: 100%;
-  height: 357px;
+  height: clamp(357px, 1.2vw, 357px);
   border-radius: 20px;
   position: relative;
 `;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export const Wrapper = styled.div`
   background-color: ${(props) => props.theme.palette.primary.background};
@@ -55,6 +56,7 @@ export const ImageWrapper = styled.div`
   position: relative;
   margin-bottom: 32px;
 `;
+
 export const Image = styled.img`
   object-fit: cover;
   width: 100%;
@@ -168,7 +170,6 @@ export const ProductionDataWrapper = styled.div`
 export const ProductionDataElementWrapper = styled.div`
   width: 100%;
   display: flex;
-  padding-bottom: 20px;
 `;
 
 export const ProductionDataType = styled.p`
@@ -192,4 +193,33 @@ export const ProductionData = styled.p`
   letter-spacing: 0em;
   text-align: left;
   width: clamp(74%, 1.2vw, 46%);
+`;
+
+export const RecommendationsWrapper = styled.div`
+  margin: 56px 0 46px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  order: -1;
+`;
+
+export const RecommendationsTitle = styled.p`
+  color: ${(props) => props.theme.palette.primary.text};
+  font-family: "Exo 2", sans-serif;
+  font-size: clamp(24px, 1.2vw, 20px);
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+`;
+
+export const NewSwiper = styled(Swiper)`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const NewSlide = styled(SwiperSlide)`
+  display: flex;
+  justify-content: center;
 `;

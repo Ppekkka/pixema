@@ -9,12 +9,12 @@ const defaultUser = {
   },
 };
 
-interface IAction {
+interface IUserAction {
   type: userActionsEnum;
   payload: null | IUserData;
 }
 
-export const userReducer = (state = defaultUser, action: IAction) => {
+export const userReducer = (state = defaultUser, action: IUserAction) => {
   switch (action.type) {
     case userActionsEnum.SIGN_UP: {
       return { ...state, user: action.payload };

@@ -34,6 +34,7 @@ const fromToObj = {
 
 const FilterMenu = () => {
   const [filters, setFilters] = useState(fromToObj);
+  const [width, setWidth] = useState(window.innerWidth);
 
   const {
     closeFilterMenu,
@@ -52,25 +53,38 @@ const FilterMenu = () => {
     });
   };
 
+  const handleSetWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleSetWidth);
+  }, []);
+
   useEffect(() => {
     changeFilters(filters);
   }, [filters]);
 
-  const width = useMemo(() => window.innerWidth, []);
-
   const globalFilters = useSelector(selectors.getFilters);
 
   const showResults = () => {
-    if (globalFilters.ratingFrom && globalFilters.ratingFrom < 0) alert("Rating can`t be less then 0!");
+    if (globalFilters.ratingFrom && globalFilters.ratingFrom < 0)
+      alert("Rating can`t be less then 0!");
     else if (globalFilters.ratingTo && globalFilters.ratingTo > 10)
       alert("Rating can`t be bigger then 10!");
     else if (globalFilters.yearFrom && globalFilters.yearFrom < 1896)
       alert("First film was made in 1896!");
-    else if (globalFilters.yearTo && globalFilters.yearTo <= globalFilters.yearFrom)
+    else if (
+      globalFilters.yearTo &&
+      globalFilters.yearTo <= globalFilters.yearFrom
+    )
       alert(
         "Year you want to be the last must be less then year where you want to start or equal!"
       );
-    else if (globalFilters.ratingTo && globalFilters.ratingTo <= globalFilters.ratingFrom)
+    else if (
+      globalFilters.ratingTo &&
+      globalFilters.ratingTo <= globalFilters.ratingFrom
+    )
       alert(
         "Rating you want to be the last must be less then rating where you want to start or equal!"
       );

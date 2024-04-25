@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 
 export const FormWrapper = styled.div`
   background-color: ${(props) => props.theme.palette.primary.darkGrey};
-  width: 574px;
+  max-width: 574px;
   padding: 40px;
   margin: 0 auto;
   border-radius: 10px;
 
-  @media (max-width: 768px) : {
-    width: 100%;
+  @media (max-width: 623px) {
     margin: 0 24px;
   }
 `;

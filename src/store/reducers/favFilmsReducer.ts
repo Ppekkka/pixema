@@ -5,14 +5,14 @@ const defaultState = {
   favFilms: [],
 };
 
-interface favFilmsAction {
+interface IFavFilmsAction {
   type: favFilmsActionsEnum;
   payload: IFilm;
 }
 
 export const favFilmsReducer = (
   state = defaultState,
-  action: favFilmsAction
+  action: IFavFilmsAction
 ) => {
   switch (action.type) {
     case favFilmsActionsEnum.ADD_TO_FAVS: {

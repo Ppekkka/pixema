@@ -4,12 +4,12 @@ const defaultState = {
   filterMenuIsOpened: false,
 };
 
-interface IAction {
+interface IFilterMenuAction {
   type: filterMenuActionsEnum;
   payload: boolean;
 }
 
-export const filterMenuReducer = (state = defaultState, action: IAction) => {
+export const filterMenuReducer = (state = defaultState, action: IFilterMenuAction) => {
   switch (action.type) {
     case filterMenuActionsEnum.OPEN_MENU: {
       return { ...state, filterMenuIsOpened: true };

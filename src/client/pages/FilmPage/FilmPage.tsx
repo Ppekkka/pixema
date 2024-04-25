@@ -26,18 +26,28 @@ import {
   ProductionDataElementWrapper,
   ProductionDataType,
   ProductionData,
+  RecommendationsWrapper,
+  RecommendationsTitle,
+  NewSwiper,
+  NewSlide
 } from "src/client/pages/FilmPage/styles";
 import ArrowSvg from "src/client/components/Svg/ArrowSvg";
 import BookmarkSvg from "src/client/components/Svg/BookmarkSvg";
 import IMDBRatingSvg from "src/client/components/Svg/IMDBRatingSvg";
 import { isFilmFav } from "src/client/helpers";
 import { sectionsEnum } from "src/types/globalTypes";
+import Card from "src/client/components/Card/Card";
+import { useSwiper } from "swiper/react";
+import "swiper/css";
+import Navigation from "src/client/components/Navigation/Navigation";
 
 const FilmPage = () => {
   const { id } = useParams();
 
   const fullFilmInfo = useSelector(selectors.getFullFilm);
-
+  const recommendations = useSelector(
+    selectors.getFilms
+  ).filmsObject.arrayOfFilmsList[0].slice(0, 6);
   const favFilms = useSelector(selectors.getFavFilms);
   const isFavDefault = isFilmFav(id!, favFilms);
 
@@ -53,6 +63,9 @@ const FilmPage = () => {
   const returnToMain = () => {
     changeSection(sectionsEnum.HOME);
   };
+
+  const swiper = useSwiper();
+  console.log(swiper);
 
   if (fullFilmInfo.Genre) {
     const genresArr = getStringFromArr(fullFilmInfo.Genre);
@@ -132,6 +145,41 @@ const FilmPage = () => {
                 <ProductionData>{fullFilmInfo.Writer}</ProductionData>
               </ProductionDataElementWrapper>
             </ProductionDataWrapper>
+
+            {/* recommendations */}
+            <NewSwiper
+              navigation
+              spaceBetween={40}
+              slidesPerView={1}
+              breakpoints={{
+                810: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                1500: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+              }}
+            >
+              <RecommendationsWrapper>
+                <RecommendationsTitle>Recommendations</RecommendationsTitle>
+                <Navigation />
+              </RecommendationsWrapper>
+
+              {recommendations.map((recommendation) => {
+                return (
+                  <NewSlide>
+                    <Card
+                      Poster={recommendation.Poster}
+                      Title={recommendation.Title}
+                      imdbRating={recommendation.imdbRating}
+                      imdbID={recommendation.imdbID}
+                    ></Card>
+                  </NewSlide>
+                );
+              })}
+            </NewSwiper>
           </RightContentWrapper>
         </FilmContentWrapper>
       </Wrapper>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MainMenuContent from "src/client/components/MainMenuContent/MainMenuContent";
 import {
   Wrapper,
@@ -15,7 +15,16 @@ import { selectors } from "src/store/selectors/selctors";
 import CustomSwitch from "src/client/components/CustomSwitch/CustomSwitch";
 
 const SettingsPage = () => {
-  const width = window.innerWidth;
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const handleSetWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleSetWidth);
+  }, []);
+
   const userInfo = useSelector(selectors.getUserInfo);
 
   return (

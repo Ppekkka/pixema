@@ -5,12 +5,12 @@ const defaultState = {
   section: sectionsEnum.HOME,
 };
 
-interface IAction {
+interface ISectionsAction {
   type: sectionsActionsEnum;
   payload: sectionsEnum;
 }
 
-export const sectionsReducer = (state = defaultState, action: IAction) => {
+export const sectionsReducer = (state = defaultState, action: ISectionsAction) => {
   switch (action.type) {
     case sectionsActionsEnum.CHANGE_SECTION: {
       return { ...state, section: action.payload };

@@ -8,5 +8,5 @@ export const selectors = {
   getSection: (state: IState) => state.sections.section,
   getThemeMode: (state: IState) => state.theme.themeMode,
   getUserInfo: (state: IState) => state.user.user,
-  getFullFilm: (state: IState) => state.film.film
+  getFullFilm: (state: IState) => state.film.film,
 };

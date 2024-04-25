@@ -7,6 +7,8 @@ import {
   CardsContentWrapper,
   CardsWrapper,
   ShowMoreButton,
+  EmptyStateWrapper,
+  NotFoundImage,
   EmptyStateText,
 } from "src/client/pages/MainPage/styles";
 import Card from "src/client/components/Card/Card";
@@ -19,16 +21,23 @@ import { selectors } from "src/store/selectors/selctors";
 const MainPage = () => {
   const [page, setPage] = useState(1);
   const [isThereMoreFilms, setIsThereMoreFilms] = useState(true);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const handleSetWidth = () => {
+    setWidth(window.innerWidth);
+  };
 
   const { setFilmsAsync, setFilteredFilmsAsync, setSearchedFilmsAsync } =
     useAction();
-
-  const width = useMemo(() => window.innerWidth, []);
 
   const filmsPerList = useMemo(() => getFilmsPerList(width), []);
   const isTrend = useSelector(selectors.getSection) === sectionsEnum.TRENDS;
   const filters = useSelector(selectors.getFilters);
   const searchTitle = useSelector(selectors.getFilms).searchTitle;
+
+  useEffect(() => {
+    window.addEventListener("resize", handleSetWidth);
+  }, []);
 
   useEffect(() => {
     if (searchTitle) {
@@ -63,26 +72,28 @@ const MainPage = () => {
     <Wrapper>
       {width >= 1440 && <MainMenuContent />}
 
-      <CardsContentWrapper>
-        {filmsArr &&
-          filmsArr.map((filmsList, idx) => {
-            return (
-              <CardsWrapper key={idx}>
-                {filmsList.map((film, idx) => {
-                  return (
-                    <Card
-                      imdbID={film.imdbID}
-                      key={idx}
-                      Poster={film.Poster}
-                      Title={film.Title}
-                      imdbRating={film.imdbRating}
-                    />
-                  );
-                })}
-              </CardsWrapper>
-            );
-          })}
-      </CardsContentWrapper>
+      {!!filmsResponse.totalResults && (
+        <CardsContentWrapper>
+          {filmsArr &&
+            filmsArr.map((filmsList, idx) => {
+              return (
+                <CardsWrapper key={idx}>
+                  {filmsList.map((film, idx) => {
+                    return (
+                      <Card
+                        imdbID={film.imdbID}
+                        key={idx}
+                        Poster={film.Poster}
+                        Title={film.Title}
+                        imdbRating={film.imdbRating}
+                      />
+                    );
+                  })}
+                </CardsWrapper>
+              );
+            })}
+        </CardsContentWrapper>
+      )}
       {isThereMoreFilms && (
         <ShowMoreButton
           onClick={() => {
@@ -103,7 +114,10 @@ const MainPage = () => {
         </ShowMoreButton>
       )}
       {!filmsResponse.totalResults && (
-        <EmptyStateText>Oops, nothing had been found</EmptyStateText>
+        <EmptyStateWrapper>
+          <NotFoundImage></NotFoundImage>
+          <EmptyStateText>Oops, nothing had been found</EmptyStateText>
+        </EmptyStateWrapper>
       )}
     </Wrapper>
   );

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import notFound from "src/assets/notFound.png";
 
 export const Wrapper = styled.div`
   background-color: ${(props) => props.theme.palette.primary.background};
@@ -45,6 +46,35 @@ export const CardsWrapper = styled.div`
   }
 `;
 
+export const EmptyStateWrapper = styled.div`
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (max-width: 1440x) {
+    padding-right: clamp(123px, 1.2vw, 48%);
+  }
+`;
+
+export const NotFoundImage = styled.div`
+  background-image: url(${notFound});
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 404px;
+  height: 362px;
+  margin: auto;
+
+  @media (max-width: 768px) {
+    width: 336px;
+    height: 298px;
+  }
+
+  @media (max-width: 465px) {
+    width: 202px;
+    height: 180px;
+  }
+`;
 
 export const EmptyStateText = styled.p`
   font-family: "Exo 2", sans-serif;
@@ -54,11 +84,5 @@ export const EmptyStateText = styled.p`
   letter-spacing: 0em;
   text-align: center;
   color: #80858b;
-  position: absolute;
-  right: calc(50% - 274px / 2);
-  top: 50%;
-
-  @media (min-width: 1440px) {
-    right: calc(50% - 137px - clamp(123px, 1.2vw, 48%));
-  }
+  margin-top: 32px;
 `;

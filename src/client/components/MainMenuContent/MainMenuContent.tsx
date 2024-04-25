@@ -21,14 +21,18 @@ const MainMenuContent = () => {
   const userInfo = useSelector(selectors.getUserInfo);
 
   const [selectedSection, setSelectedSection] = useState(defaultSection);
+  const [width, setWidth] = useState(window.innerWidth);
 
   const handleSelect = (section: sectionsEnum) => {
     setSelectedSection(section);
   };
 
+  const handleSetWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
   const { setFilmsAsync, changeSection } = useAction();
 
-  const width = window.innerWidth;
   const filmsPerList = getFilmsPerList(width);
 
   useEffect(() => {
@@ -39,6 +43,10 @@ const MainMenuContent = () => {
       setFilmsAsync(true, false, filmsPerList, 1);
     }
   }, [selectedSection]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleSetWidth);
+  }, []);
 
   const navigate = useNavigate();
 
