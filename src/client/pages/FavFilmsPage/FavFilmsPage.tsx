@@ -31,7 +31,7 @@ const FavFilmsPage = () => {
   const filmsArr = getFilmsArr(favFilms, filmsPerList);
   return (
     <Wrapper>
-      {width >= 1440 && <MainMenuContent />}
+      {width > 1440 && <MainMenuContent />}
 
       <CardsContentWrapper>
         {filmsArr &&

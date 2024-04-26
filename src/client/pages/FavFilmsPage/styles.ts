@@ -24,10 +24,6 @@ export const CardsWrapper = styled.div`
   gap: 32px;
 
   @media (max-width: 1440px) {
-    grid: repeat(2, 1fr) / repeat(3, 1fr);
-  }
-
-  @media (max-width: 1280px) {
     grid: repeat(2, 1fr) / repeat(4, 1fr);
   }
 

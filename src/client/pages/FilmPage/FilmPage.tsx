@@ -37,8 +37,6 @@ import IMDBRatingSvg from "src/client/components/Svg/IMDBRatingSvg";
 import { isFilmFav } from "src/client/helpers";
 import { sectionsEnum } from "src/types/globalTypes";
 import Card from "src/client/components/Card/Card";
-import { useSwiper } from "swiper/react";
-import "swiper/css";
 import Navigation from "src/client/components/Navigation/Navigation";
 
 const FilmPage = () => {
@@ -63,9 +61,6 @@ const FilmPage = () => {
   const returnToMain = () => {
     changeSection(sectionsEnum.HOME);
   };
-
-  const swiper = useSwiper();
-  console.log(swiper);
 
   if (fullFilmInfo.Genre) {
     const genresArr = getStringFromArr(fullFilmInfo.Genre);
@@ -146,7 +141,6 @@ const FilmPage = () => {
               </ProductionDataElementWrapper>
             </ProductionDataWrapper>
 
-            {/* recommendations */}
             <NewSwiper
               navigation
               spaceBetween={40}

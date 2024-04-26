@@ -70,7 +70,7 @@ const MainPage = () => {
 
   return (
     <Wrapper>
-      {width >= 1440 && <MainMenuContent />}
+      {width > 1440 && <MainMenuContent />}
 
       {!!filmsResponse.totalResults && (
         <CardsContentWrapper>

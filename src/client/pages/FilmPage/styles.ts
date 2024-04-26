@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 export const Wrapper = styled.div`
   background-color: ${(props) => props.theme.palette.primary.background};

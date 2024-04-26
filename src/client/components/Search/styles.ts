@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   position: relative;
   height: max-content;
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     width: clamp(65%, 1.2vw, 80%);
   }
 

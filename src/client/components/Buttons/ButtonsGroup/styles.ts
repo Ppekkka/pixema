@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import BookmarkSvg from "src/client/components/Svg/BookmarkSvg";
-import ShareSvg from "src/client/components/Svg/ShareSvg";
 
 export const Wrapper = styled.div`
   display: grid;
