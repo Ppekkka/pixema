@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import {
-  FormWrapper,
+  ActivationWrapper,
   ActivationText,
-  PrimaryButtonWrapper,
+  PrimaryButtonLinkWrapper,
 } from "src/client/pages/UserFormsPages/styles";
 import { useParams } from "react-router-dom";
 import PrimaryButton from "src/client/components/Buttons/PrimaryButton/PrimaryButton";
@@ -26,18 +26,16 @@ const ActivateAccountPage = () => {
   };
 
   return (
-    <div>
-      <FormWrapper>
+      <ActivationWrapper>
         <ActivationText>
           {uid && token ? "Success!" : "Please, check out your email!"}
         </ActivationText>
         {uid && token && (
-          <PrimaryButtonWrapper to="/main" onClick={returnToMain}>
+          <PrimaryButtonLinkWrapper to="/main" onClick={returnToMain}>
             <PrimaryButton>Go to home!</PrimaryButton>
-          </PrimaryButtonWrapper>
+          </PrimaryButtonLinkWrapper>
         )}
-      </FormWrapper>
-    </div>
+      </ActivationWrapper>
   );
 };
 

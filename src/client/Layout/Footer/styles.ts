@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const StyledFooter = styled.footer`
   padding: 40px 3% 64px;
   display: flex;
   justify-content: space-between;

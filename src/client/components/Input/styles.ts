@@ -16,12 +16,16 @@ export const StyledInput = styled.input`
   padding: 16px 20px;
   font-family: "Exo 2", sans-serif;
 
-
   &:focus {
     border: 2px solid #7b61ff;
     outline: none;
   }
+
   &:invalid {
+    border: 2px solid #ff5154;
+  }
+
+  &.invalid {
     border: 2px solid #ff5154;
   }
 `;

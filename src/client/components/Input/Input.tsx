@@ -6,12 +6,20 @@ interface IProps {
   placeholder: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value: number | string;
+  invalid?: boolean;
 }
 
-const Input = ({ inputType, placeholder, onChange, value }: IProps) => {
+const Input = ({
+  inputType,
+  placeholder,
+  onChange,
+  value,
+  invalid,
+}: IProps) => {
   return (
     <div>
       <StyledInput
+        className={invalid ? "invalid" : ""}
         type={inputType}
         placeholder={placeholder}
         onChange={onChange}

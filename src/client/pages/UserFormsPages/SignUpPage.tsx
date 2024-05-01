@@ -12,6 +12,7 @@ import {
   TextLink,
 } from "src/client/pages/UserFormsPages/styles";
 import { useAction } from "src/store/hooks/useAction";
+import { useNavigate } from "react-router-dom";
 
 const emptyUserData = {
   username: "",
@@ -20,9 +21,18 @@ const emptyUserData = {
   confirmPassword: "",
 };
 
+const emptyInvalidForms = {
+  username: false,
+  email: false,
+  password: false,
+  confirmPassword: false,
+};
+
 const SignUpPage = () => {
   const [userData, setUserData] = useState(emptyUserData);
+  const [invalidForms, setInvalidForms] = useState(emptyInvalidForms);
 
+  const navigate = useNavigate();
   const { signUpAsync } = useAction();
 
   const handleSetUserData = (
@@ -32,20 +42,34 @@ const SignUpPage = () => {
     setUserData(() => {
       return { ...userData, [field]: event.target.value };
     });
+
+    setInvalidForms({ ...invalidForms, [field]: false });
+  };
+
+  const handleSetInvalid = (forms: string[]) => {
+    const newObject = forms.reduce((object, form) => {
+      return { ...object, [form]: true };
+    }, {});
+    
+    setInvalidForms({ ...invalidForms, ...newObject });
   };
 
   const signUp = () => {
-    if (userData.password !== userData.confirmPassword)
-      alert("Check out your password!");
-    else if (Object.values(userData).includes(""))
-      alert("All fields must be filled!");
-    else {
+    const checkFormArr = Object.keys(userData).filter((form: string) => {
+      return userData[form as keyof typeof userData] === "";
+    });
+
+    if (userData.confirmPassword !== userData.password)
+      checkFormArr.push("confirmPassword");
+
+    if (!checkFormArr.length) {
       signUpAsync(userData);
-    }
+
+      return navigate("/activate-account");
+    } else handleSetInvalid(checkFormArr);
   };
 
   return (
-    <div>
       <FormWrapper>
         <Title>Sign Up</Title>
         <TextField>
@@ -55,6 +79,7 @@ const SignUpPage = () => {
               placeholder="Your name"
               onChange={(event) => handleSetUserData(event, "username")}
               value={userData.username}
+              invalid={invalidForms.username}
             ></Input>
           </Label>
         </TextField>
@@ -66,6 +91,7 @@ const SignUpPage = () => {
               placeholder="Your email"
               onChange={(event) => handleSetUserData(event, "email")}
               value={userData.email}
+              invalid={invalidForms.email}
             ></Input>
           </Label>
         </TextField>
@@ -77,6 +103,7 @@ const SignUpPage = () => {
               placeholder="Your password"
               onChange={(event) => handleSetUserData(event, "password")}
               value={userData.password}
+              invalid={invalidForms.password}
             ></Input>
           </Label>
         </TextField>
@@ -88,11 +115,12 @@ const SignUpPage = () => {
               placeholder="Confirm password"
               onChange={(event) => handleSetUserData(event, "confirmPassword")}
               value={userData.confirmPassword}
+              invalid={invalidForms.confirmPassword}
             ></Input>
           </Label>
         </TextField>
 
-        <PrimaryButtonWrapper to="/activate-account">
+        <PrimaryButtonWrapper>
           <PrimaryButton onClick={signUp}>Sign Up</PrimaryButton>
         </PrimaryButtonWrapper>
 
@@ -101,7 +129,6 @@ const SignUpPage = () => {
           <TextLink to="/sign-in"> Sign in</TextLink>
         </AlreadyHaveTextWrapper>
       </FormWrapper>
-    </div>
   );
 };
 
