@@ -1,45 +1,29 @@
 import { Dispatch } from "redux";
 import { userActions } from "src/store/actions/userActions";
 import {
-  isTokenValid,
-  refreshAccessToken,
-  signIn,
+  getUserData,
+  refreshIdToken,
 } from "src/store/thunks/userThunks/helpers";
 
 export const autoAuthAsync = () => {
   return async (dispatch: Dispatch) => {
-    const accessToken = localStorage.getItem("access");
+    const idToken = localStorage.getItem("idToken");
 
-    if (accessToken) {
-      const parsedAccessToken = JSON.parse(accessToken);
+    if (idToken) {
+      const refreshToken = localStorage.getItem("refreshToken");
 
-      try {
-        const validationOfToken = await isTokenValid(parsedAccessToken);
+      if (refreshToken) {
+        try {
+          const { id_token } = await refreshIdToken(JSON.parse(refreshToken));
+          localStorage.setItem("idToken", JSON.stringify(id_token));
+          const parsedIdToken = JSON.parse(idToken);
 
-        if (validationOfToken) {
           try {
-            const userData = await signIn(parsedAccessToken);
-            dispatch(userActions.signIn(userData));
+            const userData = await getUserData(parsedIdToken);
+
+            if (userData) dispatch(userActions.signIn(userData));
           } catch (error) {
             console.log(error);
-          }
-        }
-      } catch (error) {
-        try {
-          const refreshToken = localStorage.getItem("refresh");
-
-          if (refreshToken) {
-            try {
-              const { access } = await refreshAccessToken(
-                JSON.parse(refreshToken)
-              );
-
-              localStorage.setItem("access", JSON.stringify(access));
-
-              autoAuthAsync();
-            } catch (error) {
-              console.log(error);
-            }
           }
         } catch (error) {
           console.log(error);

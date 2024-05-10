@@ -3,7 +3,6 @@ import FavFilmsPage from "src/client/pages/FavFilmsPage/FavFilmsPage";
 import FilmPage from "src/client/pages/FilmPage/FilmPage";
 import MainPage from "src/client/pages/MainPage/MainPage";
 import SettingsPage from "src/client/pages/SettingsPage/SettingsPage";
-import ActivateAccountPage from "src/client/pages/UserFormsPages/ActivateAccountPage";
 import SignInPage from "src/client/pages/UserFormsPages/SignInPage";
 import SignUpPage from "src/client/pages/UserFormsPages/SignUpPage";
 
@@ -48,24 +47,12 @@ export const clientRoutes: IClientRoutes[] = [
   },
   {
     id: 6,
-    path: "/activate-account",
-    Component: ActivateAccountPage,
-    isPrivate: false,
-  },
-  {
-    id: 7,
-    path: "/activate-account/:uid/:token",
-    Component: ActivateAccountPage,
-    isPrivate: false,
-  },
-  {
-    id: 8,
     path: "/sign-in",
     Component: SignInPage,
     isPrivate: false,
   },
   {
-    id: 9,
+    id: 7,
     path: "/settings",
     Component: SettingsPage,
     isPrivate: true,

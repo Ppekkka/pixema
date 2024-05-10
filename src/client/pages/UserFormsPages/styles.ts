@@ -65,20 +65,3 @@ export const TextLink = styled(Link)`
   color: #7b61ff;
   text-decoration: none;
 `;
-
-export const ActivationWrapper = styled.div`
-  max-width: 574px;
-  padding: 40px;
-  margin: calc(35% / 2) auto;
-`;
-
-export const ActivationText = styled.p`
-  font-family: "Exo 2", sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 36px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: white;
-  text-align: center;
-`;

@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
 export const FlexWrapper = styled.div`
   display: flex;
   align-items: center;
+  color: ${(props) => props.theme.palette.primary.text};
 `;
 
 export const IconWrapper = styled.div`

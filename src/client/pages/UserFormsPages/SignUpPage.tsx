@@ -65,7 +65,7 @@ const SignUpPage = () => {
     if (!checkFormArr.length) {
       signUpAsync(userData);
 
-      return navigate("/activate-account");
+      return navigate("/main");
     } else handleSetInvalid(checkFormArr);
   };
 
