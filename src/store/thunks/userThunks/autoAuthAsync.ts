@@ -23,10 +23,12 @@ export const autoAuthAsync = () => {
 
             if (userData) dispatch(userActions.signIn(userData));
           } catch (error) {
-            console.log(error);
+            localStorage.removeItem("idToken");
+            localStorage.removeItem("refreshToken");
           }
         } catch (error) {
-          console.log(error);
+          localStorage.removeItem("idToken");
+          localStorage.removeItem("refreshToken");
         }
       }
     } else {

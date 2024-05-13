@@ -8,17 +8,11 @@ export const signInAsync = (
 ) => {
   return async (dispatch: Dispatch) => {
     try {
-      try {
-        const accountData = await signIn(userData);
+      const accountData = await signIn(userData);
 
-        console.log(accountData);
-
-        if (accountData) dispatch(userActions.signIn(accountData));
-      } catch (error) {
-        console.log(error);
-      }
+      if (accountData) dispatch(userActions.signIn(accountData));
     } catch (error) {
-      console.log(error);
+      window.location.reload();
     }
   };
 };

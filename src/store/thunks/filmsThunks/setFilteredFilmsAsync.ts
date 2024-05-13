@@ -70,7 +70,7 @@ export const setFilteredFilmsAsync = (
               return ratingObj.rating;
             });
           } catch (error) {
-            console.log(error);
+            ratings = [];
           }
         }
 
