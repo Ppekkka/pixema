@@ -39,10 +39,10 @@ const Card = ({ Poster, Title, imdbRating, imdbID }: ICard) => {
         {+imdbRating >= 8 ? (
           <HotRatingWrapper>
             <FireSvg fill="white" />
-            <HotRating>{imdbRating}</HotRating>
+            <HotRating data-testid="rating">{imdbRating}</HotRating>
           </HotRatingWrapper>
         ) : (
-          <Rating>{imdbRating}</Rating>
+          <Rating data-testid="rating">{imdbRating}</Rating>
         )}
         {isFav && (
           <FavWrapper>
