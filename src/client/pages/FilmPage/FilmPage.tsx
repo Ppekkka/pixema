@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectors } from "src/store/selectors/selctors";
 import { useParams, Navigate } from "react-router-dom";
@@ -40,6 +40,10 @@ import Card from "src/client/components/Card/Card";
 import Navigation from "src/client/components/Navigation/Navigation";
 
 const FilmPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { id } = useParams();
 
   const fullFilmInfo = useSelector(selectors.getFullFilm);

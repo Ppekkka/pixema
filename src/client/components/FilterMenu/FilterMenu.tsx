@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import PrimaryButton from "src/client/components/Buttons/PrimaryButton/PrimaryButton";
 import SecondaryButton from "src/client/components/Buttons/SecondaryButton/SecondaryButton";
 import {

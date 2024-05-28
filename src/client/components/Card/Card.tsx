@@ -26,10 +26,10 @@ const Card = ({ Poster, Title, imdbRating, imdbID }: ICard) => {
 
   const navigate = useNavigate();
 
-  const goToTheFilm = () => {
-    setFullFilmAsync(imdbID);
+  const goToTheFilm = async () => {
+    await setFullFilmAsync(imdbID);
 
-    setTimeout(() => navigate(`/film/${imdbID}`), 500);
+    navigate(`/film/${imdbID}`);
   };
 
   return (
@@ -39,18 +39,18 @@ const Card = ({ Poster, Title, imdbRating, imdbID }: ICard) => {
         {+imdbRating >= 8 ? (
           <HotRatingWrapper>
             <FireSvg fill="white" />
-            <HotRating data-testid="rating">{imdbRating}</HotRating>
+            <HotRating data-testid="hot-rating">{imdbRating}</HotRating>
           </HotRatingWrapper>
         ) : (
-          <Rating data-testid="rating">{imdbRating}</Rating>
+          <Rating data-testid="common-rating">{imdbRating}</Rating>
         )}
         {isFav && (
-          <FavWrapper>
+          <FavWrapper data-testid="fav-pin">
             <BookmarkSvg fill="#7B61FF" />
           </FavWrapper>
         )}
       </ImageWrapper>
-      <CardTitle onClick={goToTheFilm}>{Title}</CardTitle>
+      <CardTitle onClick={goToTheFilm} data-testid="link">{Title}</CardTitle>
     </Wrapper>
   );
 };

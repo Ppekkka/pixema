@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper, StyledFillSvg } from "src/client/components/Svg/styles";
+import { Wrapper } from "src/client/components/Svg/styles";
 
 interface IProps {
   fill?: string;
