@@ -12,9 +12,10 @@ import configureStore from "redux-mock-store";
 import { MemoryRouter } from "react-router-dom";
 import { createTheme } from "src/styles/theme";
 import { ThemeProvider } from "styled-components";
-import "@testing-library/jest-dom";
 import thunk from "redux-thunk";
+import * as router from 'react-router';
 
+const navigate = jest.fn();
 jest.mock("axios");
 
 describe("Card component test", () => {
@@ -24,7 +25,6 @@ describe("Card component test", () => {
     },
   };
   const middlewares = [thunk];
-
   const mockStore = configureStore(middlewares);
 
   let store;
@@ -39,6 +39,7 @@ describe("Card component test", () => {
     };
 
     store = mockStore(initialState);
+    jest.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
   });
 
   afterEach(() => {
